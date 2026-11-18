@@ -10,7 +10,7 @@ if (Astro.request.method === 'POST') {
   const hit = idFromPassword(pw);
   if (hit) {
     Astro.cookies.set(COOKIE, sessionValue(hit), {
-      httpOnly: true, secure: import.meta.env.PROD, sameSite: 'lax', path: '/', maxAge: 60 * 60 * 24 * 7,
+      httpOnly: true, secure: import.meta.env.PROD, sameSite: 'lax', path: '/', // no maxAge: a session cookie, gone when the browser quits
     });
     return Astro.redirect('/review');
   }
