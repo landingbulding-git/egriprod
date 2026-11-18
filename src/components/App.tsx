@@ -871,7 +871,7 @@ export default function App() {
           {uploadedImage ? (
             <div className="absolute inset-0 w-full h-full">
               {/* Preserves 100% of user's original image colors, editing, and tones */}
-              <img fetchpriority="high" decoding="async"
+              <img fetchpriority="high"
                 src={uploadedImage}
                 alt="Featured Artist"
                 className="w-full h-full object-cover"
