@@ -716,7 +716,7 @@ function TransparentSticker({
   }, [src]);
 
   return (
-    <img
+    <img loading="lazy" decoding="async"
       src={resolvedSrc}
       alt={alt}
       referrerPolicy="no-referrer"
@@ -862,7 +862,7 @@ export default function App() {
           {uploadedImage ? (
             <div className="absolute inset-0 w-full h-full">
               {/* Preserves 100% of user's original image colors, editing, and tones */}
-              <img
+              <img fetchpriority="high" decoding="async"
                 src={uploadedImage}
                 alt="Featured Artist"
                 className="w-full h-full object-cover"
@@ -1227,7 +1227,7 @@ export default function App() {
                         )}
 
                         {/* Background Video Portrait Image */}
-                        <img
+                        <img loading="lazy" decoding="async"
                           src={item.thumbnail}
                           alt={item.name}
                           className={`absolute inset-0 w-full h-full object-cover ${item.thumbnailClass || ''}`}
@@ -1300,7 +1300,7 @@ export default function App() {
                             {/* Avatar with red plus follow badge */}
                             <div className="relative flex flex-col items-center">
                               <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-white overflow-hidden bg-neutral-800 shadow-md">
-                                <img
+                                <img loading="lazy" decoding="async"
                                   src={item.thumbnail}
                                   alt={item.name}
                                   className="w-full h-full object-cover"
@@ -1513,7 +1513,7 @@ export default function App() {
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16 group">
               <div className="w-full md:w-1/3 lg:w-[300px] shrink-0">
                 <div className="w-full transition-all duration-500">
-                  <img 
+                  <img loading="lazy" decoding="async" 
                     src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/producer.webp" 
                     alt="Tibi" 
                     className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700"
@@ -1554,7 +1554,7 @@ export default function App() {
             <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 lg:gap-16 group">
               <div className="w-full md:w-1/3 lg:w-[300px] shrink-0">
                 <div className="w-full transition-all duration-500">
-                  <img 
+                  <img loading="lazy" decoding="async" 
                     src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/entrepeneur.webp" 
                     alt="Norbi" 
                     className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700"
@@ -1595,7 +1595,7 @@ export default function App() {
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16 group">
               <div className="w-full md:w-1/3 lg:w-[300px] shrink-0">
                 <div className="w-full transition-all duration-500">
-                  <img 
+                  <img loading="lazy" decoding="async" 
                     src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/cameraman.webp" 
                     alt="Ádi" 
                     className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700"
@@ -1671,7 +1671,7 @@ export default function App() {
                     
                     {/* Album Cover (Sticker) */}
                     <div className="w-12 h-12 rounded-md overflow-hidden shrink-0 bg-neutral-800 border border-white/5">
-                      <img 
+                      <img loading="lazy" decoding="async" 
                         src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/entrepeneur.webp" 
                         alt="Norbi Cover" 
                         className="w-full h-full object-cover scale-110" 
@@ -1711,7 +1711,7 @@ export default function App() {
                     
                     {/* Album Cover (Sticker) */}
                     <div className="w-12 h-12 rounded-md overflow-hidden shrink-0 bg-[#EAA824]/10 border border-[#EAA824]/20">
-                      <img 
+                      <img loading="lazy" decoding="async" 
                         src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/producer.webp" 
                         alt="Tibi Cover" 
                         className="w-full h-full object-cover scale-110" 
@@ -1745,7 +1745,7 @@ export default function App() {
               <div className="relative group mx-auto flex justify-center">
                 {/* Subtle backglow for the image */}
                 <div className="absolute inset-0 bg-[#EAA824]/10 blur-[60px] rounded-full group-hover:bg-[#EAA824]/20 transition-all duration-700" />
-                <img 
+                <img loading="lazy" decoding="async" 
                   src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/sing.webp" 
                   alt="Audio transformation visual"
                   className="relative z-10 w-full max-w-[480px] h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform group-hover:scale-105 transition-transform duration-700"
@@ -1785,7 +1785,7 @@ export default function App() {
             {/* Large Video Side (40%) */}
             <div className="lg:w-[40%] w-full">
               <div className="aspect-video w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-black group relative">
-                <iframe
+                <iframe loading="lazy"
                   key={activeAdiVideoId}
                   className="w-full h-full"
                   src={`https://www.youtube.com/embed/${activeAdiVideoId}?autoplay=0`}
@@ -1808,7 +1808,7 @@ export default function App() {
                 onClick={() => setActiveAdiVideoId(videoId)}
                 className="aspect-video w-full rounded-xl overflow-hidden shadow-md border-2 border-[#DFD8CC] hover:border-[#EAA824]/50 transition-all duration-300 relative group cursor-pointer"
               >
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`} 
                   alt={`Video thumbnail ${idx + 1}`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
@@ -1871,7 +1871,7 @@ export default function App() {
 
                 {/* Top Visual Header Card with Image & Price */}
                 <div className="relative h-48 sm:h-52 rounded-2xl overflow-hidden p-4 sm:p-5 flex flex-col justify-end mb-5 border border-white/10 bg-[#F4EFE6]">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={tier.image}
                     alt={tier.name}
                     className="absolute inset-0 w-full h-full object-cover object-top"
