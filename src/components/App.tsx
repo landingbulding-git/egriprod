@@ -22,6 +22,9 @@ import {
 
 const BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 
+const SOCIAL_VIDEO = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/egrisocialproof.mp4';
+const SOCIAL_POSTER = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/egrisocialproof_poster.jpg';
+
 interface SocialClient {
   name: string;
   avatar: React.ReactNode;
@@ -152,7 +155,7 @@ const TIKTOK_TESTIMONIALS: TikTokTestimonial[] = [
     role: 'Énekesnő & TikTok Alkotó',
     quote: 'The way to get started is to quit talking and begin.',
     fullQuote: 'Az EgriProd nélkül még mindig csak az asztalfióknak írnám a szövegeket. Egy profi stúdiócsapat, akik azonnal ráéreztek a stílusomra, és a dalunk 3 nap alatt a TikTok zenei toplistájára ugrott!',
-    thumbnail: BLANK,
+    thumbnail: SOCIAL_POSTER,
     thumbnailClass: 'scale-[1.3] object-[center_20%] hue-rotate-15',
     accentGradient: 'from-purple-950/90 via-black/40 to-black/70',
     duration: '0:58',
@@ -169,7 +172,7 @@ const TIKTOK_TESTIMONIALS: TikTokTestimonial[] = [
     role: 'Showman & Előadó',
     quote: "Opportunities don't happen. You create them.",
     fullQuote: 'Egyetlen délután alatt összeraktuk az egész nótát Tiborral. Nem volt üres duma, csak kemény munka és prémium mastering. A TikTok algoritmus megőrült érte, azonnal kilőtt az űrbe!',
-    thumbnail: BLANK,
+    thumbnail: SOCIAL_POSTER,
     thumbnailClass: 'scale-[1.25] object-[center_25%]',
     accentGradient: 'from-amber-950/90 via-black/40 to-black/70',
     duration: '1:14',
@@ -186,7 +189,7 @@ const TIKTOK_TESTIMONIALS: TikTokTestimonial[] = [
     role: 'Zenei Producer & Hitmaker',
     quote: 'Embracing the burn, redefining my limits',
     fullQuote: 'Nulláról a For You Page csúcsára. Az EgriProd lényege a gyorsaság, a radio-ready mastering és az, hogy 0% jogdíjat nyúlunk le a sikeredből. A dal 100%-ban a tied marad.',
-    thumbnail: BLANK,
+    thumbnail: SOCIAL_POSTER,
     thumbnailClass: 'scale-[1.15] object-[center_35%]',
     accentGradient: 'from-neutral-950/95 via-black/40 to-black/70',
     duration: '1:28',
@@ -203,7 +206,7 @@ const TIKTOK_TESTIMONIALS: TikTokTestimonial[] = [
     role: 'Internetes Szenzáció',
     quote: 'It takes courage to grow up and become who you really are',
     fullQuote: 'Imádom a dalt, amit nekem készítettek! Több mint egymillióan énekelték a hookomat, mindenhol ez szól, amerre járok. Köszi Tibi és az EgriProd!',
-    thumbnail: BLANK,
+    thumbnail: SOCIAL_POSTER,
     thumbnailClass: 'scale-[1.35] object-[center_35%]',
     accentGradient: 'from-rose-950/90 via-black/40 to-black/70',
     duration: '1:02',
@@ -220,7 +223,7 @@ const TIKTOK_TESTIMONIALS: TikTokTestimonial[] = [
     role: 'Fitness & Zenei Ikon',
     quote: 'Success is not in what you have, but who you are.',
     fullQuote: 'A fitnesztermekben és a klubokban is ez a zene pörög. Tiszta, masszív hangzás, nem gagyi házi demó, hanem igazi profi amerikai szintű produkció.',
-    thumbnail: BLANK,
+    thumbnail: SOCIAL_POSTER,
     thumbnailClass: 'scale-[1.28] object-[center_45%] brightness-110',
     accentGradient: 'from-yellow-950/90 via-black/40 to-black/70',
     duration: '0:48',
@@ -736,7 +739,7 @@ export default function App() {
 
   // Carousel & Video modal state
   const [activePhoneIndex, setActivePhoneIndex] = useState<number>(2); // Center phone active by default
-  const [activeVideo, setActiveVideo] = useState<TikTokTestimonial | null>(null);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [showComparisonTable, setShowComparisonTable] = useState(false);
   const [activeAdiVideoId, setActiveAdiVideoId] = useState('1olG4omyNe8');
   const [activeGuaranteeIndex, setActiveGuaranteeIndex] = useState<number>(2); // Center card active by default
@@ -1191,7 +1194,7 @@ export default function App() {
                       if (!isCenter) {
                         setActivePhoneIndex(idx);
                       } else {
-                        setActiveVideo(item);
+                        setActiveVideo(item.id);
                       }
                     }}
                     style={{
@@ -1212,6 +1215,17 @@ export default function App() {
                       {/* Screen Glass Area */}
                       <div className="relative w-full flex-1 rounded-[30px] sm:rounded-[36px] overflow-hidden bg-neutral-950 flex flex-col justify-between">
                         
+                        {isCenter && activeVideo === item.id && (
+                          <video
+                            src={SOCIAL_VIDEO}
+                            poster={SOCIAL_POSTER}
+                            controls
+                            autoPlay
+                            playsInline
+                            className="absolute inset-0 z-30 w-full h-full object-cover bg-black"
+                          />
+                        )}
+
                         {/* Background Video Portrait Image */}
                         <img
                           src={item.thumbnail}
@@ -2164,69 +2178,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Video Modal Player */}
-      {activeVideo && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in">
-          <div className="relative w-full max-w-2xl bg-neutral-950 rounded-3xl overflow-hidden shadow-2xl border border-neutral-800">
-            {/* Modal Header */}
-            <div className="p-4 sm:p-5 flex items-center justify-between border-b border-neutral-800 bg-neutral-900/60">
-              <div className="flex items-center gap-2.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#EAA824] animate-pulse" />
-                <span className="text-white font-semibold text-sm sm:text-base">
-                  {activeVideo.name} ({activeVideo.username}) — TikTok Esettanulmány
-                </span>
-              </div>
-              <button
-                onClick={() => setActiveVideo(null)}
-                className="w-8 h-8 rounded-full bg-neutral-800 text-neutral-400 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
-              >
-                <X size={16} />
-              </button>
-            </div>
-
-            {/* Simulated Video Player */}
-            <div className="relative aspect-video w-full bg-black flex items-center justify-center overflow-hidden">
-              <img
-                src={activeVideo.thumbnail}
-                alt="Video playing"
-                className={`w-full h-full object-cover ${activeVideo.thumbnailClass || ''} opacity-85`}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30" />
-              
-              <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-2 z-10">
-                <div className="w-full bg-white/20 h-1.5 rounded-full overflow-hidden">
-                  <div className="bg-[#EAA824] h-full w-[62%] rounded-full animate-pulse" />
-                </div>
-                <div className="flex items-center justify-between text-xs text-neutral-300">
-                  <div className="flex items-center gap-3">
-                    <span className="text-white font-medium">{activeVideo.duration}</span>
-                    <span className="text-neutral-400">{activeVideo.views}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Volume2 size={14} className="text-[#EAA824]" />
-                    <span>HD 1080p • EgriProd Audio Mastering</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Modal Quote & Bio */}
-            <div className="p-6 bg-neutral-900 text-neutral-200">
-              <p className="text-sm sm:text-[15px] leading-relaxed text-neutral-200 mb-4 italic">
-                "{activeVideo.fullQuote}"
-              </p>
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-neutral-400 border-t border-neutral-800 pt-3 gap-2">
-                <span className="font-semibold text-white">
-                  {activeVideo.name} • {activeVideo.role}
-                </span>
-                <span className="text-[#EAA824] font-medium">
-                  ★ Hivatalos EgriProd Sikersztori
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </main>
   );
 }
