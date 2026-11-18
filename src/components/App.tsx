@@ -252,7 +252,7 @@ const PRICING_TIERS: PricingTier[] = [
   {
     id: 'tier-1',
     name: 'Saját Dal + Lyrics Videó',
-    image: BLANK,
+    image: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/pricing1.webp',
     price: '180.000 Ft – 220.000 Ft',
     goal: 'Megírjuk a szöveget, elkészítjük a zenét, és felvesszük a dalodat – akár otthonról is, utazás nélkül. Kapsz hozzá egy profi dalszöveges videót és borítóképet, hogy rögtön felrakhasd a YouTube-ra. Minden 7 munkanap alatt elkészül, és a dal 100%-ban a tiéd marad.',
     badge: null,
@@ -270,7 +270,7 @@ const PRICING_TIERS: PricingTier[] = [
   {
     id: 'tier-2',
     name: 'Dal + Stúdióklip + Promo',
-    image: BLANK,
+    image: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/pricing2.webp',
     price: '320.000 Ft – 380.000 Ft',
     goal: 'Megkapod a teljes kész dalodat, és mellé forgatunk egy profi videóklipet a stúdióban. Készítünk veled egy podcast-beszélgetést is, és ebből a kettőből összevágunk neked 20 rövid videót TikTokra, Instagramra, Facebookra és YouTube-ra. Így 7 munkanap alatt nemcsak egy saját dalod lesz, hanem 20 kész videód is, amivel azonnal reklámozhatod a zenédet.',
     badge: 'LEGNÉPSZERŰBB',
@@ -288,7 +288,7 @@ const PRICING_TIERS: PricingTier[] = [
   {
     id: 'tier-3',
     name: 'Dal + Külsős Klip + Promo',
-    image: BLANK,
+    image: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/pricing3.webp',
     price: '550.000 Ft – 750.000 Ft',
     goal: 'Ebben a csomagban benne van a kész dalod, a podcast-felvétel és a 20 rövid közösségi médiás videó is. A legnagyobb extra, hogy a videóklipet egy külső helyszínen forgatjuk le, amit mi szervezünk le helyetted. Neked csak el kell jönnöd a megadott címre, és 7 munkanap múlva a tiéd a kész klip és a 100%-ban saját jogú dalod.',
     badge: 'VIP',
@@ -535,7 +535,7 @@ const GUARANTEE_CARDS: GuaranteeCard[] = [
     title: 'Akkor is profi dalod lesz, ha nem tudsz énekelni',
     description:
       'Ha nem megy az éneklés, egy igazi énekes felénekli helyetted a dalt, mi pedig a te hangodra alakítjuk át. Ha valami nem tetszik, a csomagodban lévő javítási körökben ingyen módosítjuk, utána pedig felárért bármennyi plusz javítást kérhetsz. Ha a végeredmény mégsem lesz profi minőségű, visszaadjuk a pénzed.',
-    image: BLANK,
+    image: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/garancia1.webp',
     bgClass: 'bg-[#DB2777]',
     accentGlow: 'rgba(219, 39, 119, 0.25)',
   },
@@ -544,7 +544,7 @@ const GUARANTEE_CARDS: GuaranteeCard[] = [
     title: 'Stúdióidőpont 14 napon belül',
     description:
       'Több mint 10 éves tapasztalattal és milliós stúdiógépekkel várunk, így akkor is biztonságban érzed magad, ha még sosem álltál mikrofon előtt. Ha az indulástól számított 14 napon belül nem adunk neked stúdióidőpontot, levonunk 150.000 Ft-ot a következő stúdiómunkád árából.',
-    image: BLANK,
+    image: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/garancia2.webp',
     bgClass: 'bg-[#0F766E]',
     accentGlow: 'rgba(15, 118, 110, 0.25)',
   },
@@ -553,7 +553,7 @@ const GUARANTEE_CARDS: GuaranteeCard[] = [
     title: 'Kész videóklip szervezés nélkül',
     description:
       'Neked semmit sem kell szervezned vagy telefonálnod: csak megkapod a címet és az időpontot, és eljössz a forgatásra. Ha a fizetés után 14 napon belül nem szervezzük le a helyszínt vagy a stúdiót, visszaadjuk a forgatás árát, és még 20.000 Ft kedvezményt is kapsz a következő forgatásodból.',
-    image: BLANK,
+    image: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/garancia3.webp',
     bgClass: 'bg-[#6D28D9]',
     accentGlow: 'rgba(109, 40, 217, 0.35)',
   },
@@ -562,7 +562,7 @@ const GUARANTEE_CARDS: GuaranteeCard[] = [
     title: 'Soha nem nevetünk ki és nem nézünk le',
     description:
       'Tudjuk, hogy mindenki elkezdi valahol, és még a legnagyobb sztárok is hibáznak a stúdióban. Nálunk nincs cikizés vagy kioktatás, ha még kezdő vagy, vagy bizonytalan a hangod. Ha bármikor úgy érzed, hogy lenéztünk vagy megszégyenítettünk, kérdés nélkül visszaadjuk a teljes pénzed.',
-    image: BLANK,
+    image: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/garancia4.webp',
     bgClass: 'bg-[#1D4ED8]',
     accentGlow: 'rgba(29, 78, 216, 0.25)',
   },
@@ -571,7 +571,7 @@ const GUARANTEE_CARDS: GuaranteeCard[] = [
     title: 'Segítünk, hogy minél többen lássák a dalodat',
     description:
       'Nem hagyunk magadra a kész zenével, hogy neked kelljen kitalálnod, hogyan reklámozd. Ha videóklipes csomagot választasz, 7 munkanapon belül átadunk neked 20 készre vágott rövid videót a klipedből és a podcastből. Ezeket rögtön kirakhatod TikTokra, Instagramra, Facebookra és YouTube-ra is, bármilyen korlátozás nélkül.',
-    image: BLANK,
+    image: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/garancia5.webp',
     bgClass: 'bg-[#C2410C]',
     accentGlow: 'rgba(194, 65, 12, 0.25)',
   },
@@ -723,7 +723,7 @@ function TransparentSticker({
 
 export default function App() {
   // Image upload state - defaults to provided image
-  const [uploadedImage, setUploadedImage] = useState<string | null>(BLANK);
+  const [uploadedImage, setUploadedImage] = useState<string | null>('https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/hero.webp');
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -829,7 +829,7 @@ export default function App() {
 
   // Sample photo loader
   const loadReferenceSample = () => {
-    setUploadedImage(BLANK);
+    setUploadedImage('https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/hero.webp');
     showToast('Default image loaded');
   };
 
@@ -1499,7 +1499,7 @@ export default function App() {
               <div className="w-full md:w-1/3 lg:w-[300px] shrink-0">
                 <div className="w-full transition-all duration-500">
                   <img 
-                    src={BLANK} 
+                    src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/producer.webp" 
                     alt="Tibi" 
                     className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700"
                   />
@@ -1540,7 +1540,7 @@ export default function App() {
               <div className="w-full md:w-1/3 lg:w-[300px] shrink-0">
                 <div className="w-full transition-all duration-500">
                   <img 
-                    src={BLANK} 
+                    src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/entrepeneur.webp" 
                     alt="Norbi" 
                     className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700"
                   />
@@ -1581,7 +1581,7 @@ export default function App() {
               <div className="w-full md:w-1/3 lg:w-[300px] shrink-0">
                 <div className="w-full transition-all duration-500">
                   <img 
-                    src={BLANK} 
+                    src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/cameraman.webp" 
                     alt="Ádi" 
                     className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700"
                   />
@@ -1657,7 +1657,7 @@ export default function App() {
                     {/* Album Cover (Sticker) */}
                     <div className="w-12 h-12 rounded-md overflow-hidden shrink-0 bg-neutral-800 border border-white/5">
                       <img 
-                        src={BLANK} 
+                        src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/entrepeneur.webp" 
                         alt="Norbi Cover" 
                         className="w-full h-full object-cover scale-110" 
                       />
@@ -1697,7 +1697,7 @@ export default function App() {
                     {/* Album Cover (Sticker) */}
                     <div className="w-12 h-12 rounded-md overflow-hidden shrink-0 bg-[#EAA824]/10 border border-[#EAA824]/20">
                       <img 
-                        src={BLANK} 
+                        src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/producer.webp" 
                         alt="Tibi Cover" 
                         className="w-full h-full object-cover scale-110" 
                       />
@@ -1731,7 +1731,7 @@ export default function App() {
                 {/* Subtle backglow for the image */}
                 <div className="absolute inset-0 bg-[#EAA824]/10 blur-[60px] rounded-full group-hover:bg-[#EAA824]/20 transition-all duration-700" />
                 <img 
-                  src={BLANK} 
+                  src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/sing.webp" 
                   alt="Audio transformation visual"
                   className="relative z-10 w-full max-w-[480px] h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform group-hover:scale-105 transition-transform duration-700"
                 />
