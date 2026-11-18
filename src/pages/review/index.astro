@@ -1,0 +1,79 @@
+---
+import '../../styles/global.css';
+import { COOKIE, projectFromCookie, projectFromPassword, sessionValue } from '../../lib/auth';
+
+export const prerender = false;
+
+let error = false;
+if (Astro.request.method === 'POST') {
+  const pw = String((await Astro.request.formData()).get('password') ?? '');
+  const hit = projectFromPassword(pw);
+  if (hit) {
+    Astro.cookies.set(COOKIE, sessionValue(hit.id), {
+      httpOnly: true, secure: import.meta.env.PROD, sameSite: 'lax', path: '/', maxAge: 60 * 60 * 24 * 7,
+    });
+    return Astro.redirect('/review');
+  }
+  await new Promise((r) => setTimeout(r, 1000)); // shortcut: slows guessing only; add real rate limiting if this is ever exposed widely
+  error = true;
+}
+
+const project = projectFromCookie(Astro.cookies.get(COOKIE)?.value);
+const url = (f: string) => `/review/media/${f}`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>{project ? `${project.title} — Review` : 'Client review'}</title>
+  </head>
+  <body class="bg-[#F4EFE6] text-neutral-900 antialiased min-h-screen">
+    {project ? (
+      <main class="mx-auto max-w-4xl px-4 py-8">
+        <div class="relative overflow-hidden rounded-xl bg-black">
+          <video src={url(project.video)} controls controlslist="nodownload noplaybackrate" disablepictureinpicture playsinline preload="metadata" class="aspect-video w-full" oncontextmenu="return false"></video>
+          <span class="pointer-events-none absolute right-3 top-3 text-xs font-semibold tracking-widest text-white/50">PREVIEW · {project.client}</span>
+        </div>
+        <h1 class="mt-5 text-2xl font-bold">{project.title}</h1>
+        <p class="mt-2 whitespace-pre-line text-neutral-700">{project.description}</p>
+
+        {project.music.length > 0 && (
+          <section class="mt-8">
+            <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-neutral-500">Music</h2>
+            {project.music.map((m) => (
+              <div class="mb-3">
+                <p class="mb-1 text-sm font-medium">{m.title}</p>
+                <audio src={url(m.file)} controls controlslist="nodownload" preload="none" class="w-full" oncontextmenu="return false"></audio>
+              </div>
+            ))}
+          </section>
+        )}
+
+        {project.thumbs.length > 0 && (
+          <section class="mt-8">
+            <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-neutral-500">Thumbnail options</h2>
+            <div class="grid gap-3 sm:grid-cols-2">
+              {project.thumbs.map((t, i) => (
+                <figure>
+                  <img src={url(t)} alt={`Option ${i + 1}`} draggable="false" oncontextmenu="return false" class="aspect-video w-full rounded-lg object-cover" />
+                  <figcaption class="mt-1 text-sm text-neutral-600">Option {i + 1}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
+      </main>
+    ) : (
+      <main class="mx-auto flex min-h-screen max-w-sm flex-col justify-center px-4">
+        <h1 class="mb-4 text-2xl font-bold">Client review</h1>
+        <form method="post" class="flex flex-col gap-3">
+          <input name="password" type="password" required autofocus autocomplete="off" placeholder="Project password" class="rounded-lg border border-neutral-300 bg-white px-3 py-2" />
+          <button class="rounded-lg bg-neutral-900 px-3 py-2 font-semibold text-white">Open project</button>
+          {error && <p class="text-sm text-red-600">Wrong password.</p>}
+        </form>
+      </main>
+    )}
+  </body>
+</html>
