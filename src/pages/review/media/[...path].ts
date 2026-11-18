@@ -9,6 +9,10 @@ export const GET: APIRoute = async ({ params, request, cookies }) => {
   // Only files inside the logged-in project's own folder (never project.json).
   if (!id || !key.startsWith(`${id}/`) || key.includes('..') || key.endsWith('project.json')) return new Response('Not found', { status: 404 });
 
+  // Only the page's own <video>/<audio>/<img> tags; pasting the link in a tab, "Save as" or a plain downloader is refused.
+  // shortcut: a scripted client can fake this header, and browsers older than ~2023 don't send it; upgrade to short-lived tokens if that matters.
+  if (!['video', 'audio', 'image'].includes(request.headers.get('sec-fetch-dest') ?? '')) return new Response('Not found', { status: 404 });
+
   const range = request.headers.get('range');
   const r = await r2Fetch(key, range ? { range } : {});
   if (!r.ok && r.status !== 206) return new Response('Not found', { status: 404 });
