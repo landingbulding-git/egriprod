@@ -4,7 +4,7 @@ export type Project = {
   client: string; // on-screen watermark text
   title: string;
   description: string;
-  video: string;
+  video: string | null;
   music: { title: string; file: string }[];
   thumbs: string[];
 };

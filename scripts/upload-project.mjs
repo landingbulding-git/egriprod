@@ -39,27 +39,31 @@ function plan(folder) {
   if (!/^p\d+$/.test(d.id)) problems.push('details.txt has no valid "Project ID: pN"');
   if (!d.client) problems.push('Client is empty');
   if (!d.title) problems.push('Title is empty');
-  if (video.length !== 1) problems.push(`expected exactly 1 video, found ${video.length}`);
-  if (music.length !== 1) problems.push(`expected exactly 1 music file, found ${music.length}`);
-  if (thumbs.length < 1) problems.push('no thumbnails found');
+  if (video.length > 1) problems.push(`more than 1 video (${video.length}); keep one`);
+  if (music.length > 1) problems.push(`more than 1 music file (${music.length}); keep one`);
   const pw = (e.PROJECT_PASSWORDS ?? '').split(',').find((x) => x.startsWith(d.id + ':'))?.split(/:(.*)/s)[1];
   if (pw !== d.password) problems.push(`password in details.txt differs from PROJECT_PASSWORDS in .env (${d.id})`);
+  // Missing media is fine: only what exists is uploaded and shown.
   const items = [
-    [`${d.id}/video${extname(video[0] ?? '').toLowerCase()}`, join(folder, 'video', video[0] ?? '')],
-    [`${d.id}/music${extname(music[0] ?? '').toLowerCase()}`, join(folder, 'music', music[0] ?? '')],
+    ...video.map((v) => [`${d.id}/video${extname(v).toLowerCase()}`, join(folder, 'video', v)]),
+    ...music.map((m) => [`${d.id}/music${extname(m).toLowerCase()}`, join(folder, 'music', m)]),
     ...thumbs.map((t, i) => [`${d.id}/thumb-${i + 1}${extname(t).toLowerCase()}`, join(folder, 'thumbnail', t)]),
   ];
-  const json = { id: d.id, client: d.client, title: d.title, description: d.description, video: items[0][0],
-    music: [{ title: basename(music[0] ?? '', extname(music[0] ?? '')), file: items[1][0] }], thumbs: items.slice(2).map((i) => i[0]) };
-  return { d, problems, items, json };
+  const has = [video.length && 'video', music.length && 'music', thumbs.length && `${thumbs.length} thumbnail(s)`].filter(Boolean);
+  const missing = [!video.length && 'video', !music.length && 'music', !thumbs.length && 'thumbnails'].filter(Boolean);
+  const json = { id: d.id, client: d.client, title: d.title, description: d.description,
+    video: video.length ? items[0][0] : null,
+    music: music.length ? [{ title: basename(music[0], extname(music[0])), file: items[video.length][0] }] : [],
+    thumbs: thumbs.map((_, i) => items[video.length + music.length + i][0]) };
+  return { d, problems, items, json, has, missing };
 }
 
 async function list() {
   for (const f of readdirSync(PROJECTS).filter((f) => statSync(join(PROJECTS, f)).isDirectory()).sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))) {
     if (!existsSync(join(PROJECTS, f, 'details.txt'))) { console.log(`${f}\t(no details.txt)`); continue; }
-    const { d, problems } = plan(join(PROJECTS, f));
+    const { d, problems, has, missing } = plan(join(PROJECTS, f));
     const live = (await r2.fetch(`${base}/${d.id}/project.json`, { method: 'HEAD' })).ok;
-    console.log(`${f}\t${d.id}\tclient: ${d.client || '-'}\tpublished: ${live ? 'yes' : 'no'}\t${problems.length ? 'TODO: ' + problems.join('; ') : 'ready to upload'}`);
+    console.log(`${f}\t${d.id}\tclient: ${d.client || '-'}\tpublished: ${live ? 'yes' : 'no'}\thas: ${has.join(', ') || 'nothing'}\tmissing: ${missing.join(', ') || 'nothing'}${problems.length ? '\tFIX: ' + problems.join('; ') : ''}`);
   }
 }
 
