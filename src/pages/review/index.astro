@@ -29,12 +29,12 @@ const url = (f: string) => `/review/media/${f}`;
 const COVER = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/studio/Gemini_Generated_Image_t59qndt59qndt59q.webp';
 ---
 <!doctype html>
-<html lang="en" style="color-scheme: dark">
+<html lang="hu" style="color-scheme: dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex,nofollow" />
-    <title>{project ? `${project.title} — Review` : 'Client review'}</title>
+    <title>{project ? `${project.title} — Előnézet` : 'Ügyfél-előnézet'}</title>
   </head>
   <body class="min-h-screen bg-[#141414] text-[#F4EFE6] antialiased selection:bg-[#EAA824] selection:text-black">
     <div class="relative h-40 w-full overflow-hidden bg-[#121212] sm:h-56 md:h-72">
@@ -43,28 +43,28 @@ const COVER = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/studio/Ge
     </div>
     {id && !project ? (
       <main class="mx-auto max-w-sm px-4 py-12">
-        <h1 class="text-2xl font-bold">Not ready yet</h1>
-        <p class="mt-2 text-[#F4EFE6]/70">Your project is still being prepared. Please check back soon.</p>
+        <h1 class="text-2xl font-bold">Még nincs kész</h1>
+        <p class="mt-2 text-[#F4EFE6]/70">Az Ön projektje még előkészítés alatt áll. Kérjük, nézzen vissza hamarosan.</p>
       </main>
     ) : project ? (
       <main class="mx-auto max-w-4xl px-4 pb-16 pt-6">
         {project.video && (
           <div class="relative overflow-hidden rounded-xl border border-[#3e3b36] bg-black">
             <video src={url(project.video)} controls controlslist="nodownload noplaybackrate" disablepictureinpicture playsinline preload="metadata" class="aspect-video w-full" oncontextmenu="return false"></video>
-            <span class="pointer-events-none absolute right-3 top-3 text-xs font-semibold tracking-widest text-white/50">PREVIEW · {project.client}</span>
+            <span class="pointer-events-none absolute right-3 top-3 text-xs font-semibold tracking-widest text-white/50">ELŐNÉZET · {project.client}</span>
           </div>
         )}
         <h1 class="mt-5 text-2xl font-bold">{project.title}</h1>
         {project.description && (
           <div id="desc" class="mt-3 rounded-xl bg-[#222] p-4 text-sm">
             <p id="desc-text" class="line-clamp-3 whitespace-pre-line">{project.description}</p>
-            <button id="desc-toggle" type="button" hidden class="mt-1 font-semibold text-[#F4EFE6]">...more</button>
+            <button id="desc-toggle" type="button" hidden class="mt-1 font-semibold text-[#F4EFE6]">...továbbiak</button>
           </div>
         )}
 
         {project.music.length > 0 && (
           <section class="mt-8">
-            <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#EAA824]">Music</h2>
+            <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#EAA824]">Zene</h2>
             {project.music.map((m) => (
               <div class="mb-3 rounded-xl border border-[#3e3b36] bg-[#161616] p-4">
                 <p class="mb-2 text-sm font-medium">{m.title}</p>
@@ -76,12 +76,12 @@ const COVER = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/studio/Ge
 
         {project.thumbs.length > 0 && (
           <section class="mt-8">
-            <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#EAA824]">Thumbnail options</h2>
+            <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#EAA824]">Borítókép opciók</h2>
             <div class="grid gap-3 sm:grid-cols-2">
               {project.thumbs.map((t, i) => (
                 <figure class="overflow-hidden rounded-xl border border-[#3e3b36] bg-[#161616]">
-                  <img src={url(t)} alt={`Option ${i + 1}`} draggable="false" oncontextmenu="return false" class="aspect-video w-full object-cover" />
-                  <figcaption class="px-3 py-2 text-sm text-[#F4EFE6]/70">Option {i + 1}</figcaption>
+                  <img src={url(t)} alt={`${i + 1}. opció`} draggable="false" oncontextmenu="return false" class="aspect-video w-full object-cover" />
+                  <figcaption class="px-3 py-2 text-sm text-[#F4EFE6]/70">{i + 1}. opció</figcaption>
                 </figure>
               ))}
             </div>
@@ -91,17 +91,17 @@ const COVER = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/studio/Ge
           const t = document.getElementById('desc-text'), b = document.getElementById('desc-toggle');
           if (t && b) {
             if (t.scrollHeight > t.clientHeight) b.hidden = false;
-            b.onclick = () => { const open = t.classList.toggle('line-clamp-3') === false; b.textContent = open ? 'Show less' : '...more'; };
+            b.onclick = () => { const open = t.classList.toggle('line-clamp-3') === false; b.textContent = open ? 'Kevesebb' : '...továbbiak'; };
           }
         </script>
       </main>
     ) : (
       <main class="mx-auto max-w-sm px-4 py-12">
-        <h1 class="mb-4 text-2xl font-bold">Client review</h1>
+        <h1 class="mb-4 text-2xl font-bold">Ügyfél-előnézet</h1>
         <form method="post" class="flex flex-col gap-3">
-          <input name="password" type="password" required autofocus autocomplete="off" placeholder="Project password" class="rounded-lg border border-[#3e3b36] bg-[#161616] px-3 py-2 text-[#F4EFE6] placeholder:text-[#F4EFE6]/40 focus:border-[#EAA824] focus:outline-none" />
-          <button class="rounded-lg bg-[#EAA824] px-3 py-2 font-semibold text-black hover:bg-[#ffba2e]">Open project</button>
-          {error && <p class="text-sm text-[#D63031]">Wrong password.</p>}
+          <input name="password" type="password" required autofocus autocomplete="off" placeholder="Projekt jelszó" class="rounded-lg border border-[#3e3b36] bg-[#161616] px-3 py-2 text-[#F4EFE6] placeholder:text-[#F4EFE6]/40 focus:border-[#EAA824] focus:outline-none" />
+          <button class="rounded-lg bg-[#EAA824] px-3 py-2 font-semibold text-black hover:bg-[#ffba2e]">Megnyitás</button>
+          {error && <p class="text-sm text-[#D63031]">Hibás jelszó.</p>}
         </form>
       </main>
     )}
