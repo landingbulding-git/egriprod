@@ -862,7 +862,7 @@ export default function App() {
         {/* LEFT COLUMN: Artist Spotlight & Custom Image Upload Area   */}
         {/* ============================================================ */}
         <section 
-          className="relative lg:w-[45%] xl:w-[42%] w-full min-h-[520px] lg:min-h-screen bg-[#121214] flex flex-col justify-between overflow-hidden"
+          className="relative lg:w-[45%] xl:w-[42%] w-full aspect-video lg:aspect-auto lg:min-h-screen bg-[#121214] flex flex-col justify-between overflow-hidden"
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
@@ -871,10 +871,10 @@ export default function App() {
           {uploadedImage ? (
             <div className="absolute inset-0 w-full h-full">
               {/* Preserves 100% of user's original image colors, editing, and tones */}
-              <img fetchpriority="high"
+              <img
                 src={uploadedImage}
                 alt="Featured Artist"
-                className="block w-full h-[520px] lg:h-full object-cover"
+                className="w-full h-full object-cover"
               />
               {/* Subtle localized scrims only at edges for text legibility, keeping photo colors untouched */}
               <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-black/60 to-transparent pointer-events-none" />
