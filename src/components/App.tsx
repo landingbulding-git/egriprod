@@ -874,7 +874,7 @@ export default function App() {
               <img fetchpriority="high"
                 src={uploadedImage}
                 alt="Featured Artist"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="block w-full h-[520px] lg:h-full object-cover"
               />
               {/* Subtle localized scrims only at edges for text legibility, keeping photo colors untouched */}
               <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-black/60 to-transparent pointer-events-none" />
