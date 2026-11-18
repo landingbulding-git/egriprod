@@ -969,9 +969,9 @@ export default function App() {
           {/* ============================================================ */}
           {/* Bottom Layer: Rotated Yellow Badge & Role Subtitle            */}
           {/* ============================================================ */}
-          <div className="relative z-10 p-5 sm:p-9 mt-auto flex flex-row-reverse items-end justify-between gap-3 sm:block">
+          <div className="relative z-10 p-5 sm:p-9 mt-auto flex flex-col items-end sm:block">
             {/* Rotated Yellow Badge */}
-            <div className="relative inline-block mb-0 sm:mb-3.5 group shrink-0">
+            <div className="relative inline-block mb-1.5 sm:mb-3.5 group">
               <div className="transform -rotate-[3.2deg] origin-bottom-left transition-transform duration-200 group-hover:-rotate-[1.5deg]">
                 <div className="bg-[#EAA824] text-[#121212] px-2.5 sm:px-5 py-1 sm:py-2 shadow-[0_8px_20px_rgba(0,0,0,0.4)] flex items-center gap-2">
                   {isEditingInfo ? (
@@ -990,7 +990,7 @@ export default function App() {
 
                   <button
                     onClick={() => setIsEditingInfo(!isEditingInfo)}
-                    className="opacity-0 group-hover:opacity-80 hover:!opacity-100 transition-opacity text-black ml-1"
+                    className="hidden sm:block opacity-0 group-hover:opacity-80 hover:!opacity-100 transition-opacity text-black ml-1"
                     title={isEditingInfo ? "Save name" : "Edit name"}
                   >
                     {isEditingInfo ? <Check size={16} /> : <Edit2 size={14} />}
@@ -1000,7 +1000,7 @@ export default function App() {
             </div>
 
             {/* Uppercase Letterspaced Role Metadata */}
-            <div className="space-y-0.5 text-neutral-300 drop-shadow-md">
+            <div className="space-y-0.5 text-neutral-300 drop-shadow-md text-right sm:text-left">
               <p className="text-[11px] font-bold tracking-[0.22em] uppercase text-neutral-200">
                 {roleLine1}
               </p>
