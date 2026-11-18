@@ -969,11 +969,11 @@ export default function App() {
           {/* ============================================================ */}
           {/* Bottom Layer: Rotated Yellow Badge & Role Subtitle            */}
           {/* ============================================================ */}
-          <div className="relative z-10 p-7 sm:p-9 mt-auto">
+          <div className="relative z-10 p-5 sm:p-9 mt-auto flex flex-row-reverse items-end justify-between gap-3 sm:block">
             {/* Rotated Yellow Badge */}
-            <div className="relative inline-block mb-3.5 group">
+            <div className="relative inline-block mb-0 sm:mb-3.5 group shrink-0">
               <div className="transform -rotate-[3.2deg] origin-bottom-left transition-transform duration-200 group-hover:-rotate-[1.5deg]">
-                <div className="bg-[#EAA824] text-[#121212] px-4 sm:px-5 py-1.5 sm:py-2 shadow-[0_8px_20px_rgba(0,0,0,0.4)] flex items-center gap-2">
+                <div className="bg-[#EAA824] text-[#121212] px-2.5 sm:px-5 py-1 sm:py-2 shadow-[0_8px_20px_rgba(0,0,0,0.4)] flex items-center gap-2">
                   {isEditingInfo ? (
                     <input
                       type="text"
@@ -983,7 +983,7 @@ export default function App() {
                       autoFocus
                     />
                   ) : (
-                    <span className="font-editorial font-bold text-2xl sm:text-[32px] tracking-tight text-[#121212] whitespace-nowrap">
+                    <span className="font-editorial font-bold text-base sm:text-[32px] tracking-tight text-[#121212] whitespace-nowrap">
                       {artistName}
                     </span>
                   )}
