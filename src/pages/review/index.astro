@@ -26,38 +26,43 @@ if (id) {
   Astro.cookies.set(MEDIA_COOKIE, sessionValue(id), { httpOnly: true, secure: import.meta.env.PROD, sameSite: 'lax', path: '/review/media' });
 }
 const url = (f: string) => `/review/media/${f}`;
+const COVER = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/studio/Gemini_Generated_Image_t59qndt59qndt59q.webp';
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" style="color-scheme: dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex,nofollow" />
     <title>{project ? `${project.title} — Review` : 'Client review'}</title>
   </head>
-  <body class="bg-[#F4EFE6] text-neutral-900 antialiased min-h-screen">
+  <body class="min-h-screen bg-[#141414] text-[#F4EFE6] antialiased selection:bg-[#EAA824] selection:text-black">
+    <div class="relative h-40 w-full overflow-hidden bg-[#121212] sm:h-56 md:h-72">
+      <img src={COVER} alt="" draggable="false" class="h-full w-full object-cover" />
+      <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#141414] to-transparent"></div>
+    </div>
     {id && !project ? (
-      <main class="mx-auto flex min-h-screen max-w-sm flex-col justify-center px-4">
+      <main class="mx-auto max-w-sm px-4 py-12">
         <h1 class="text-2xl font-bold">Not ready yet</h1>
-        <p class="mt-2 text-neutral-700">Your project is still being prepared. Please check back soon.</p>
+        <p class="mt-2 text-[#F4EFE6]/70">Your project is still being prepared. Please check back soon.</p>
       </main>
     ) : project ? (
-      <main class="mx-auto max-w-4xl px-4 py-8">
+      <main class="mx-auto max-w-4xl px-4 pb-16 pt-6">
         {project.video && (
-        <div class="relative overflow-hidden rounded-xl bg-black">
-          <video src={url(project.video)} controls controlslist="nodownload noplaybackrate" disablepictureinpicture playsinline preload="metadata" class="aspect-video w-full" oncontextmenu="return false"></video>
-          <span class="pointer-events-none absolute right-3 top-3 text-xs font-semibold tracking-widest text-white/50">PREVIEW · {project.client}</span>
-        </div>
+          <div class="relative overflow-hidden rounded-xl border border-[#3e3b36] bg-black">
+            <video src={url(project.video)} controls controlslist="nodownload noplaybackrate" disablepictureinpicture playsinline preload="metadata" class="aspect-video w-full" oncontextmenu="return false"></video>
+            <span class="pointer-events-none absolute right-3 top-3 text-xs font-semibold tracking-widest text-white/50">PREVIEW · {project.client}</span>
+          </div>
         )}
         <h1 class="mt-5 text-2xl font-bold">{project.title}</h1>
-        <p class="mt-2 whitespace-pre-line text-neutral-700">{project.description}</p>
+        <p class="mt-2 whitespace-pre-line text-[#F4EFE6]/70">{project.description}</p>
 
         {project.music.length > 0 && (
           <section class="mt-8">
-            <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-neutral-500">Music</h2>
+            <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#EAA824]">Music</h2>
             {project.music.map((m) => (
-              <div class="mb-3">
-                <p class="mb-1 text-sm font-medium">{m.title}</p>
+              <div class="mb-3 rounded-xl border border-[#3e3b36] bg-[#161616] p-4">
+                <p class="mb-2 text-sm font-medium">{m.title}</p>
                 <audio src={url(m.file)} controls controlslist="nodownload" preload="none" class="w-full" oncontextmenu="return false"></audio>
               </div>
             ))}
@@ -66,12 +71,12 @@ const url = (f: string) => `/review/media/${f}`;
 
         {project.thumbs.length > 0 && (
           <section class="mt-8">
-            <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-neutral-500">Thumbnail options</h2>
+            <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#EAA824]">Thumbnail options</h2>
             <div class="grid gap-3 sm:grid-cols-2">
               {project.thumbs.map((t, i) => (
-                <figure>
-                  <img src={url(t)} alt={`Option ${i + 1}`} draggable="false" oncontextmenu="return false" class="aspect-video w-full rounded-lg object-cover" />
-                  <figcaption class="mt-1 text-sm text-neutral-600">Option {i + 1}</figcaption>
+                <figure class="overflow-hidden rounded-xl border border-[#3e3b36] bg-[#161616]">
+                  <img src={url(t)} alt={`Option ${i + 1}`} draggable="false" oncontextmenu="return false" class="aspect-video w-full object-cover" />
+                  <figcaption class="px-3 py-2 text-sm text-[#F4EFE6]/70">Option {i + 1}</figcaption>
                 </figure>
               ))}
             </div>
@@ -79,12 +84,12 @@ const url = (f: string) => `/review/media/${f}`;
         )}
       </main>
     ) : (
-      <main class="mx-auto flex min-h-screen max-w-sm flex-col justify-center px-4">
+      <main class="mx-auto max-w-sm px-4 py-12">
         <h1 class="mb-4 text-2xl font-bold">Client review</h1>
         <form method="post" class="flex flex-col gap-3">
-          <input name="password" type="password" required autofocus autocomplete="off" placeholder="Project password" class="rounded-lg border border-neutral-300 bg-white px-3 py-2" />
-          <button class="rounded-lg bg-neutral-900 px-3 py-2 font-semibold text-white">Open project</button>
-          {error && <p class="text-sm text-red-600">Wrong password.</p>}
+          <input name="password" type="password" required autofocus autocomplete="off" placeholder="Project password" class="rounded-lg border border-[#3e3b36] bg-[#161616] px-3 py-2 text-[#F4EFE6] placeholder:text-[#F4EFE6]/40 focus:border-[#EAA824] focus:outline-none" />
+          <button class="rounded-lg bg-[#EAA824] px-3 py-2 font-semibold text-black hover:bg-[#ffba2e]">Open project</button>
+          {error && <p class="text-sm text-[#D63031]">Wrong password.</p>}
         </form>
       </main>
     )}
