@@ -25,6 +25,15 @@ const BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAA
 const SOCIAL_VIDEO = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/egrisocialproof.mp4';
 const SOCIAL_POSTER = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/egrisocialproof_poster.jpg';
 
+// Vercel image optimizer (prod only): serves right-sized webp instead of the full Blob originals.
+const responsive = (url: string, widths: number[], sizes: string) =>
+  import.meta.env.PROD
+    ? {
+        srcSet: widths.map((w) => `/_vercel/image?url=${encodeURIComponent(url)}&w=${w}&q=75 ${w}w`).join(', '),
+        sizes,
+      }
+    : {};
+
 interface SocialClient {
   name: string;
   avatar: React.ReactNode;
@@ -1229,6 +1238,7 @@ export default function App() {
                         {/* Background Video Portrait Image */}
                         <img loading="lazy" decoding="async"
                           src={item.thumbnail}
+                          {...responsive(item.thumbnail, [384, 640, 828], '430px')}
                           alt={item.name}
                           className={`absolute inset-0 w-full h-full object-cover ${item.thumbnailClass || ''}`}
                         />
@@ -1514,7 +1524,8 @@ export default function App() {
               <div className="w-full md:w-1/3 lg:w-[300px] shrink-0">
                 <div className="w-full transition-all duration-500">
                   <img loading="lazy" decoding="async" 
-                    src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/producer.webp" 
+                    src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/producer.webp"
+                    {...responsive("https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/producer.webp", [384, 640, 1080], "(min-width: 768px) 640px, 100vw")} 
                     alt="Tibi" 
                     className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700"
                   />
@@ -1555,7 +1566,8 @@ export default function App() {
               <div className="w-full md:w-1/3 lg:w-[300px] shrink-0">
                 <div className="w-full transition-all duration-500">
                   <img loading="lazy" decoding="async" 
-                    src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/entrepeneur.webp" 
+                    src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/entrepeneur.webp"
+                    {...responsive("https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/entrepeneur.webp", [384, 640, 1080], "(min-width: 768px) 640px, 100vw")} 
                     alt="Norbi" 
                     className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700"
                   />
@@ -1596,7 +1608,8 @@ export default function App() {
               <div className="w-full md:w-1/3 lg:w-[300px] shrink-0">
                 <div className="w-full transition-all duration-500">
                   <img loading="lazy" decoding="async" 
-                    src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/cameraman.webp" 
+                    src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/cameraman.webp"
+                    {...responsive("https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/cameraman.webp", [384, 640, 1080], "(min-width: 768px) 640px, 100vw")} 
                     alt="Ádi" 
                     className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700"
                   />
@@ -1672,7 +1685,8 @@ export default function App() {
                     {/* Album Cover (Sticker) */}
                     <div className="w-12 h-12 rounded-md overflow-hidden shrink-0 bg-neutral-800 border border-white/5">
                       <img loading="lazy" decoding="async" 
-                        src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/entrepeneur.webp" 
+                        src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/entrepeneur.webp"
+                    {...responsive("https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/entrepeneur.webp", [384, 640, 1080], "(min-width: 768px) 640px, 100vw")} 
                         alt="Norbi Cover" 
                         className="w-full h-full object-cover scale-110" 
                       />
@@ -1712,7 +1726,8 @@ export default function App() {
                     {/* Album Cover (Sticker) */}
                     <div className="w-12 h-12 rounded-md overflow-hidden shrink-0 bg-[#EAA824]/10 border border-[#EAA824]/20">
                       <img loading="lazy" decoding="async" 
-                        src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/producer.webp" 
+                        src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/producer.webp"
+                    {...responsive("https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/producer.webp", [384, 640, 1080], "(min-width: 768px) 640px, 100vw")} 
                         alt="Tibi Cover" 
                         className="w-full h-full object-cover scale-110" 
                       />
