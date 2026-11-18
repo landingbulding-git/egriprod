@@ -1,6 +1,6 @@
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { AwsClient } from 'aws4fetch';
-import { projects, type Project } from '../projects';
+import { projectIds, type Project } from '../projects';
 
 const env = (k: string) => (import.meta.env[k] ?? process.env[k]) as string | undefined;
 export const COOKIE = 'review_session';
@@ -10,19 +10,21 @@ const same = (a: string, b: string) => a.length === b.length && timingSafeEqual(
 
 export const sessionValue = (id: string) => `${id}.${sign(id)}`;
 
-export function projectFromCookie(value?: string): Project | undefined {
+export function idFromCookie(value?: string): string | undefined {
   const [id, mac] = (value ?? '').split('.');
-  if (!id || !mac || !same(mac, sign(id))) return;
-  return projects.find((p) => p.id === id);
+  if (id && mac && same(mac, sign(id)) && projectIds.includes(id)) return id;
 }
 
-export function projectFromPassword(pw: string): Project | undefined {
+export async function loadProject(id: string): Promise<Project | undefined> {
+  const r = await r2Fetch(`${id}/project.json`, {});
+  return r.ok ? ((await r.json()) as Project) : undefined;
+}
+
+export function idFromPassword(pw: string): string | undefined {
   const entries = (env('PROJECT_PASSWORDS') ?? '').split(',').map((e) => e.trim().split(/:(.*)/s));
   const hit = entries.find(([, p]) => p && same(p, pw.trim()));
-  return projects.find((p) => p.id === hit?.[0]);
+  return hit && projectIds.includes(hit[0]) ? hit[0] : undefined;
 }
-
-export const allowedFiles = (p: Project) => [p.video, ...p.music.map((m) => m.file), ...p.thumbs];
 
 let r2: AwsClient;
 export function r2Fetch(key: string, headers: HeadersInit) {

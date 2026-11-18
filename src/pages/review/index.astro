@@ -1,15 +1,15 @@
 ---
 import '../../styles/global.css';
-import { COOKIE, projectFromCookie, projectFromPassword, sessionValue } from '../../lib/auth';
+import { COOKIE, idFromCookie, idFromPassword, loadProject, sessionValue } from '../../lib/auth';
 
 export const prerender = false;
 
 let error = false;
 if (Astro.request.method === 'POST') {
   const pw = String((await Astro.request.formData()).get('password') ?? '');
-  const hit = projectFromPassword(pw);
+  const hit = idFromPassword(pw);
   if (hit) {
-    Astro.cookies.set(COOKIE, sessionValue(hit.id), {
+    Astro.cookies.set(COOKIE, sessionValue(hit), {
       httpOnly: true, secure: import.meta.env.PROD, sameSite: 'lax', path: '/', maxAge: 60 * 60 * 24 * 7,
     });
     return Astro.redirect('/review');
@@ -18,7 +18,8 @@ if (Astro.request.method === 'POST') {
   error = true;
 }
 
-const project = projectFromCookie(Astro.cookies.get(COOKIE)?.value);
+const id = idFromCookie(Astro.cookies.get(COOKIE)?.value);
+const project = id ? await loadProject(id) : undefined;
 const url = (f: string) => `/review/media/${f}`;
 ---
 <!doctype html>
@@ -30,7 +31,12 @@ const url = (f: string) => `/review/media/${f}`;
     <title>{project ? `${project.title} — Review` : 'Client review'}</title>
   </head>
   <body class="bg-[#F4EFE6] text-neutral-900 antialiased min-h-screen">
-    {project ? (
+    {id && !project ? (
+      <main class="mx-auto flex min-h-screen max-w-sm flex-col justify-center px-4">
+        <h1 class="text-2xl font-bold">Not ready yet</h1>
+        <p class="mt-2 text-neutral-700">Your project is still being prepared. Please check back soon.</p>
+      </main>
+    ) : project ? (
       <main class="mx-auto max-w-4xl px-4 py-8">
         <div class="relative overflow-hidden rounded-xl bg-black">
           <video src={url(project.video)} controls controlslist="nodownload noplaybackrate" disablepictureinpicture playsinline preload="metadata" class="aspect-video w-full" oncontextmenu="return false"></video>
