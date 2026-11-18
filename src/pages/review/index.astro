@@ -72,7 +72,11 @@ const COVER = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/studio/Ge
             <div class="grid gap-3 sm:grid-cols-2">
               {project.thumbs.map((t, i) => (
                 <figure class="overflow-hidden rounded-xl border border-[#3e3b36] bg-[#161616]">
-                  <img src={url(t)} alt={`${i + 1}. opció`} draggable="false" oncontextmenu="return false" class="aspect-video w-full object-cover" />
+                  <div class="relative aspect-video w-full select-none" style="-webkit-touch-callout:none;-webkit-user-select:none" oncontextmenu="return false">
+                    {/* pointer-events-none: a long-press never lands on the <img>, so iOS/Android "Save image" doesn't appear. The overlay catches the touch instead. */}
+                    <img src={url(t)} alt={`${i + 1}. opció`} draggable="false" class="pointer-events-none h-full w-full select-none object-cover" style="-webkit-touch-callout:none" />
+                    <div class="absolute inset-0"></div>
+                  </div>
                   <figcaption class="px-3 py-2 text-sm text-[#F4EFE6]/70">{i + 1}. opció</figcaption>
                 </figure>
               ))}
