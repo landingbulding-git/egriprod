@@ -3,7 +3,8 @@ import { AwsClient } from 'aws4fetch';
 import { projectIds, type Project } from '../projects';
 
 const env = (k: string) => (import.meta.env[k] ?? process.env[k]) as string | undefined;
-export const COOKIE = 'review_session';
+export const COOKIE = 'review_session'; // one-shot: consumed by the first page load after login
+export const MEDIA_COOKIE = 'review_media'; // lets that page fetch its own files; useless without the page
 
 const sign = (id: string) => createHmac('sha256', env('SESSION_SECRET')!).update(id).digest('hex');
 const same = (a: string, b: string) => a.length === b.length && timingSafeEqual(Buffer.from(a), Buffer.from(b));

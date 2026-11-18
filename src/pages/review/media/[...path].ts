@@ -1,10 +1,10 @@
 import type { APIRoute } from 'astro';
-import { COOKIE, idFromCookie, r2Fetch } from '../../../lib/auth';
+import { MEDIA_COOKIE, idFromCookie, r2Fetch } from '../../../lib/auth';
 
 export const prerender = false;
 
 export const GET: APIRoute = async ({ params, request, cookies }) => {
-  const id = idFromCookie(cookies.get(COOKIE)?.value);
+  const id = idFromCookie(cookies.get(MEDIA_COOKIE)?.value);
   const key = params.path ?? '';
   // Only files inside the logged-in project's own folder (never project.json).
   if (!id || !key.startsWith(`${id}/`) || key.includes('..') || key.endsWith('project.json')) return new Response('Not found', { status: 404 });

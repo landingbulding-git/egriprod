@@ -1,6 +1,6 @@
 ---
 import '../../styles/global.css';
-import { COOKIE, idFromCookie, idFromPassword, loadProject, sessionValue } from '../../lib/auth';
+import { COOKIE, MEDIA_COOKIE, idFromCookie, idFromPassword, loadProject, sessionValue } from '../../lib/auth';
 
 export const prerender = false;
 
@@ -20,6 +20,11 @@ if (Astro.request.method === 'POST') {
 
 const id = idFromCookie(Astro.cookies.get(COOKIE)?.value);
 const project = id ? await loadProject(id) : undefined;
+if (id) {
+  // Single use: a refresh finds no login cookie and shows the password form again.
+  Astro.cookies.delete(COOKIE, { path: '/' });
+  Astro.cookies.set(MEDIA_COOKIE, sessionValue(id), { httpOnly: true, secure: import.meta.env.PROD, sameSite: 'lax', path: '/review/media' });
+}
 const url = (f: string) => `/review/media/${f}`;
 ---
 <!doctype html>
