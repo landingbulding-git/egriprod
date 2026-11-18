@@ -1,0 +1,14 @@
+---
+const { music, class: cls = '' } = Astro.props as { music: { title: string; file: string }[]; class?: string };
+---
+{music.length > 0 && (
+  <section class={cls}>
+    <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#EAA824]">Zene</h2>
+    {music.map((m) => (
+      <div class="mb-3 rounded-xl border border-[#3e3b36] bg-[#161616] p-4">
+        <p class="mb-2 text-sm font-medium">{m.title}</p>
+        <audio src={`/review/media/${m.file}`} controls controlslist="nodownload" preload="none" class="w-full" oncontextmenu="return false"></audio>
+      </div>
+    ))}
+  </section>
+)}
