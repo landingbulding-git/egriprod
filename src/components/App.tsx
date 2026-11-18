@@ -591,6 +591,7 @@ function TransparentSticker({
   useEffect(() => {
     let cancelled = false;
     const img = new Image();
+    img.crossOrigin = 'anonymous';
     img.src = src;
 
     img.onload = () => {
@@ -1773,7 +1774,7 @@ export default function App() {
                 <iframe
                   key={activeAdiVideoId}
                   className="w-full h-full"
-                  src="about:blank"
+                  src={`https://www.youtube.com/embed/${activeAdiVideoId}?autoplay=0`}
                   title="Main video player"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -1794,7 +1795,7 @@ export default function App() {
                 className="aspect-video w-full rounded-xl overflow-hidden shadow-md border-2 border-[#DFD8CC] hover:border-[#EAA824]/50 transition-all duration-300 relative group cursor-pointer"
               >
                 <img 
-                  src={BLANK} 
+                  src={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`} 
                   alt={`Video thumbnail ${idx + 1}`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
