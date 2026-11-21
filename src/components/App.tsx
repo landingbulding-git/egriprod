@@ -17,7 +17,11 @@ import {
   Plus,
   ChevronDown,
   ChevronUp,
-  MoreHorizontal
+  MoreHorizontal,
+  User,
+  Phone,
+  Mail,
+  BadgeCheck
 } from 'lucide-react';
 
 const BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
@@ -2210,9 +2214,13 @@ export default function App() {
             </div>
           </div>
 
-          {/* Right: form */}
+          {/* Right: title + form + review */}
+          <div className="w-full max-w-lg mx-auto lg:mx-0 flex flex-col">
+          <h2 className="font-editorial font-bold text-3xl sm:text-4xl leading-tight text-white tracking-[-0.02em] mb-8 text-balance">
+            Hagyd meg az adataidat
+          </h2>
           <form
-            className="w-full max-w-lg mx-auto lg:mx-0 space-y-5"
+            className="space-y-5"
             onSubmit={(e) => {
               e.preventDefault();
               showToast('Köszönjük! Hamarosan jelentkezünk.');
@@ -2222,55 +2230,96 @@ export default function App() {
           >
             <input type="hidden" name="package" value={selectedPackage} />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <label className="block">
-                  <span className="block text-[11px] font-bold uppercase tracking-[0.15em] text-neutral-300 mb-2">Vezetéknév <span className="text-[#EAA824]">*</span></span>
+              <label className="block">
+                <span className="block text-[11px] font-bold uppercase tracking-[0.15em] text-neutral-400 mb-2">Vezetéknév <span className="text-[#EAA824]">*</span></span>
+                <span className="relative block">
+                  <User size={17} className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 pointer-events-none" />
                   <input
                     name="lastName"
                     type="text"
                     autoComplete="family-name"
+                    placeholder="Kovács"
                     required
-                    className="w-full px-5 py-4 rounded-2xl bg-white/5 border border-white/10 text-white text-base focus:outline-none focus:border-[#EAA824] focus:ring-2 focus:ring-[#EAA824]/30 transition"
+                    className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.06] border border-white/10 text-white text-[15px] placeholder:text-neutral-600 focus:outline-none focus:bg-white/[0.07] focus:border-[#EAA824] focus:ring-4 focus:ring-[#EAA824]/15 transition-all"
                   />
-                </label>
-                <label className="block">
-                  <span className="block text-[11px] font-bold uppercase tracking-[0.15em] text-neutral-300 mb-2">Keresztnév <span className="text-[#EAA824]">*</span></span>
+                </span>
+              </label>
+              <label className="block">
+                <span className="block text-[11px] font-bold uppercase tracking-[0.15em] text-neutral-400 mb-2">Keresztnév <span className="text-[#EAA824]">*</span></span>
+                <span className="relative block">
+                  <User size={17} className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 pointer-events-none" />
                   <input
                     name="firstName"
                     type="text"
                     autoComplete="given-name"
+                    placeholder="Anna"
                     required
-                    className="w-full px-5 py-4 rounded-2xl bg-white/5 border border-white/10 text-white text-base focus:outline-none focus:border-[#EAA824] focus:ring-2 focus:ring-[#EAA824]/30 transition"
+                    className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.06] border border-white/10 text-white text-[15px] placeholder:text-neutral-600 focus:outline-none focus:bg-white/[0.07] focus:border-[#EAA824] focus:ring-4 focus:ring-[#EAA824]/15 transition-all"
                   />
-                </label>
+                </span>
+              </label>
             </div>
-                <label className="block">
-                  <span className="block text-[11px] font-bold uppercase tracking-[0.15em] text-neutral-300 mb-2">Telefonszám <span className="text-[#EAA824]">*</span></span>
+              <label className="block">
+                <span className="block text-[11px] font-bold uppercase tracking-[0.15em] text-neutral-400 mb-2">Telefonszám <span className="text-[#EAA824]">*</span></span>
+                <span className="relative block">
+                  <Phone size={17} className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 pointer-events-none" />
                   <input
                     name="phone"
                     type="tel"
                     autoComplete="tel"
+                    placeholder="+36 30 123 4567"
                     required
-                    className="w-full px-5 py-4 rounded-2xl bg-white/5 border border-white/10 text-white text-base focus:outline-none focus:border-[#EAA824] focus:ring-2 focus:ring-[#EAA824]/30 transition"
+                    className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.06] border border-white/10 text-white text-[15px] placeholder:text-neutral-600 focus:outline-none focus:bg-white/[0.07] focus:border-[#EAA824] focus:ring-4 focus:ring-[#EAA824]/15 transition-all"
                   />
-                </label>
-                <label className="block">
-                  <span className="block text-[11px] font-bold uppercase tracking-[0.15em] text-neutral-300 mb-2">E-mail cím <span className="text-[#EAA824]">*</span></span>
+                </span>
+              </label>
+              <label className="block">
+                <span className="block text-[11px] font-bold uppercase tracking-[0.15em] text-neutral-400 mb-2">E-mail cím <span className="text-[#EAA824]">*</span></span>
+                <span className="relative block">
+                  <Mail size={17} className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 pointer-events-none" />
                   <input
                     name="email"
                     type="email"
                     autoComplete="email"
+                    placeholder="te@email.hu"
                     required
-                    className="w-full px-5 py-4 rounded-2xl bg-white/5 border border-white/10 text-white text-base focus:outline-none focus:border-[#EAA824] focus:ring-2 focus:ring-[#EAA824]/30 transition"
+                    className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.06] border border-white/10 text-white text-[15px] placeholder:text-neutral-600 focus:outline-none focus:bg-white/[0.07] focus:border-[#EAA824] focus:ring-4 focus:ring-[#EAA824]/15 transition-all"
                   />
-                </label>
+                </span>
+              </label>
             <button
               type="submit"
-              className="w-full py-4 px-5 rounded-2xl bg-[#EAA824] hover:bg-[#ffba2e] text-black font-bold text-sm tracking-wide flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 cursor-pointer"
+              className="w-full py-3.5 px-5 rounded-xl font-bold text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 cursor-pointer bg-[#EAA824] text-black hover:bg-[#ffba2e]"
             >
               <span>Küldés</span>
               <ArrowRight size={14} />
             </button>
           </form>
+
+          {/* Review (placeholder) */}
+          <div className="mt-8 pt-6 border-t border-white/10 flex flex-col items-end text-right gap-3">
+            <div className="flex items-center gap-0.5">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <Star key={i} size={13} fill="#EAA824" stroke="#EAA824" />
+              ))}
+            </div>
+            <p className="text-[13px] sm:text-sm text-neutral-300 leading-relaxed max-w-sm">
+              “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.”
+            </p>
+            <div className="flex items-center gap-3">
+              <div className="flex flex-col items-end">
+                <span className="text-sm font-bold text-white">Név Placeholder</span>
+                <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#EAA824]">
+                  <BadgeCheck size={14} />
+                  Clipform hitelesített
+                </span>
+              </div>
+              <div className="w-11 h-11 rounded-full bg-neutral-800 border border-white/15 flex items-center justify-center text-neutral-500 shrink-0">
+                <User size={20} />
+              </div>
+            </div>
+          </div>
+          </div>
         </div>
       </section>
 
