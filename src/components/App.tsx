@@ -2205,8 +2205,8 @@ export default function App() {
       {/* ================================================================ */}
       {/* CLOSER: Video (9:16 placeholder) + Contact form                  */}
       {/* ================================================================ */}
-      <section id="closer" className="w-full py-16 sm:py-24 px-4 sm:px-10 lg:px-16 bg-[#08090C] border-t border-neutral-800 text-white">
-        <div className="max-w-6xl mx-auto rounded-[28px] sm:rounded-[36px] bg-[#0E0F14] border border-neutral-800 shadow-2xl grid grid-cols-1 lg:grid-cols-[2fr_3fr] items-stretch overflow-hidden">
+      <section id="closer" className="w-full py-16 sm:py-24 px-4 sm:px-10 lg:px-16 bg-[#0E0F14] border-t border-neutral-800 text-white">
+        <div className="max-w-6xl mx-auto rounded-[28px] sm:rounded-[36px] bg-[#0E0F14] border border-[#EAA824]/20 shadow-[0_0_90px_rgba(234,168,36,0.22),0_0_30px_rgba(234,168,36,0.12)] grid grid-cols-1 lg:grid-cols-[2fr_3fr] items-stretch overflow-hidden">
           {/* Left: 9:16 video placeholder */}
           <div className="w-full aspect-[9/16] max-h-[560px] lg:max-h-none lg:aspect-auto lg:h-full bg-[#161822] flex items-center justify-center">
             <div className="w-16 h-16 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white">
