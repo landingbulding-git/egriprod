@@ -2206,16 +2206,16 @@ export default function App() {
       {/* CLOSER: Video (9:16 placeholder) + Contact form                  */}
       {/* ================================================================ */}
       <section id="closer" className="w-full py-16 sm:py-24 px-4 sm:px-10 lg:px-16 bg-white text-white">
-        <div className="max-w-6xl mx-auto rounded-[28px] sm:rounded-[36px] bg-[#0E0F14] border border-neutral-800 shadow-2xl grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-10 lg:gap-16 items-center p-6 sm:p-10 lg:p-14">
+        <div className="max-w-6xl mx-auto rounded-[28px] sm:rounded-[36px] bg-[#0E0F14] border border-neutral-800 shadow-2xl grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-10 lg:gap-16 items-stretch p-6 sm:p-10 lg:p-14">
           {/* Left: 9:16 video placeholder */}
-          <div className="w-full max-w-[300px] sm:max-w-[340px] mx-auto aspect-[9/16] rounded-[24px] bg-[#161822] border border-neutral-800 flex items-center justify-center">
+          <div className="w-full max-w-[340px] mx-auto lg:max-w-none lg:mx-0 aspect-[9/16] lg:aspect-auto lg:h-full rounded-[24px] bg-[#161822] border border-neutral-800 flex items-center justify-center">
             <div className="w-16 h-16 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white">
               <Play size={26} fill="currentColor" className="ml-1" />
             </div>
           </div>
 
           {/* Right: title + form + review */}
-          <div className="w-full max-w-lg mx-auto lg:mx-0 flex flex-col">
+          <div className="w-full max-w-lg mx-auto lg:mx-0 flex flex-col justify-center">
           <h2 className="font-editorial font-bold text-3xl sm:text-4xl leading-tight text-white tracking-[-0.02em] mb-8 text-balance">
             Hagyd meg az adataidat
           </h2>
