@@ -45,20 +45,7 @@ interface SocialClient {
 
 const SOCIAL_CLIENTS: SocialClient[] = [
   {
-    name: 'Varga Irén',
-    avatar: (
-      <svg viewBox="0 0 40 40" className="w-full h-full bg-[#3B2820]">
-        <circle cx="20" cy="18" r="9" fill="#E8BFA0" />
-        <path d="M11 17 C10 10 30 10 29 17 C31 22 30 26 27 28 C26 23 25 19 20 18 C15 19 14 23 13 28 C10 26 9 22 11 17 Z" fill="#1C1412" />
-        <path d="M12 36 C13 27 27 27 28 36 Z" fill="#8B2635" />
-        <circle cx="17.5" cy="18" r="1.2" fill="#222" />
-        <circle cx="22.5" cy="18" r="1.2" fill="#222" />
-        <path d="M18.5 22 Q20 23.5 21.5 22" stroke="#B83A4B" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Győzike',
+    name: 'Rácz Géza',
     avatar: (
       <svg viewBox="0 0 40 40" className="w-full h-full bg-[#1F1C18]">
         <circle cx="20" cy="19" r="9.5" fill="#DDB28C" />
@@ -74,38 +61,7 @@ const SOCIAL_CLIENTS: SocialClient[] = [
     ),
   },
   {
-    name: 'Zsebibaba',
-    avatar: (
-      <svg viewBox="0 0 40 40" className="w-full h-full bg-[#2A1D27]">
-        {/* Blonde ponytail */}
-        <circle cx="26" cy="12" r="5" fill="#F4CF74" />
-        <circle cx="20" cy="19" r="8.5" fill="#F5CBA7" />
-        <path d="M13 18 C14 11 26 11 27 18 Z" fill="#F4CF74" />
-        <circle cx="17" cy="19" r="1.2" fill="#2A1B28" />
-        <circle cx="23" cy="19" r="1.2" fill="#2A1B28" />
-        <path d="M18.5 22.5 Q20 23.8 21.5 22.5" stroke="#E84393" strokeWidth="1" fill="none" strokeLinecap="round" />
-        <path d="M12 36 C13 28 27 28 28 36 Z" fill="#FD79A8" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Norina Diamond',
-    avatar: (
-      <svg viewBox="0 0 40 40" className="w-full h-full bg-[#1A1A22]">
-        <circle cx="20" cy="19" r="9" fill="#F2D0B6" />
-        {/* Platinum chic bob */}
-        <path d="M11 17 C11 9 29 9 29 17 C30 23 28 26 27 28 C26 21 24 18 20 18 C16 18 14 21 13 28 C12 26 10 23 11 17 Z" fill="#ECECF0" />
-        <circle cx="17" cy="18.5" r="1.2" fill="#111" />
-        <circle cx="23" cy="18.5" r="1.2" fill="#111" />
-        <path d="M18.5 22.5 Q20 24 21.5 22.5" stroke="#D63031" strokeWidth="1" fill="none" strokeLinecap="round" />
-        {/* Diamond dress collar */}
-        <path d="M11 36 C13 27 27 27 29 36 Z" fill="#2C3A47" />
-        <polygon points="20,29 22,31 20,33 18,31" fill="#74B9FF" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Johnny Gold',
+    name: 'Koltai Ádám',
     avatar: (
       <svg viewBox="0 0 40 40" className="w-full h-full bg-[#2A241A]">
         {/* Tanned sculpted silhouette */}
@@ -122,7 +78,7 @@ const SOCIAL_CLIENTS: SocialClient[] = [
     ),
   },
   {
-    name: 'Fekete Pákó',
+    name: 'Mr. Busta',
     avatar: (
       <svg viewBox="0 0 40 40" className="w-full h-full bg-[#181E1C]">
         {/* Warm skin tone & bright smile */}
@@ -137,6 +93,20 @@ const SOCIAL_CLIENTS: SocialClient[] = [
         {/* Tropical red/yellow collar */}
         <path d="M11 36 C13 27 27 27 29 36 Z" fill="#D63031" />
         <polygon points="20,28 22,34 18,34" fill="#EAA824" />
+      </svg>
+    ),
+  },  {
+    name: 'M.K',
+    avatar: (
+      <svg viewBox="0 0 40 40" className="w-full h-full bg-[#2A1D27]">
+        {/* Blonde ponytail */}
+        <circle cx="26" cy="12" r="5" fill="#F4CF74" />
+        <circle cx="20" cy="19" r="8.5" fill="#F5CBA7" />
+        <path d="M13 18 C14 11 26 11 27 18 Z" fill="#F4CF74" />
+        <circle cx="17" cy="19" r="1.2" fill="#2A1B28" />
+        <circle cx="23" cy="19" r="1.2" fill="#2A1B28" />
+        <path d="M18.5 22.5 Q20 23.8 21.5 22.5" stroke="#E84393" strokeWidth="1" fill="none" strokeLinecap="round" />
+        <path d="M12 36 C13 28 27 28 28 36 Z" fill="#FD79A8" />
       </svg>
     ),
   },
@@ -1040,7 +1010,7 @@ export default function App() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 sm:gap-x-10">
                 <div className="divide-y divide-[#E6E0D4]">
-                  {SOCIAL_CLIENTS.slice(0, 3).map((client, idx) => (
+                  {SOCIAL_CLIENTS.slice(0, 2).map((client, idx) => (
                     <div key={idx} className="flex items-center justify-between py-2 text-xs">
                       <div className="flex items-center gap-2.5 min-w-0">
                         <div className="w-8 h-8 rounded-full border border-[#D5CFC3] overflow-hidden shadow-xs shrink-0 flex items-center justify-center">
@@ -1062,7 +1032,7 @@ export default function App() {
                 </div>
 
                 <div className="divide-y divide-[#E6E0D4]">
-                  {SOCIAL_CLIENTS.slice(3, 6).map((client, idx) => (
+                  {SOCIAL_CLIENTS.slice(2, 4).map((client, idx) => (
                     <div key={idx} className="flex items-center justify-between py-2 text-xs">
                       <div className="flex items-center gap-2.5 min-w-0">
                         <div className="w-8 h-8 rounded-full border border-[#D5CFC3] overflow-hidden shadow-xs shrink-0 flex items-center justify-center">
