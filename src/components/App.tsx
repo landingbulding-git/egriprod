@@ -2297,7 +2297,7 @@ export default function App() {
           </form>
 
           {/* Review (placeholder) */}
-          <div className="mt-8 ml-auto w-full max-w-sm rounded-2xl bg-white text-[#161616] shadow-xl p-4 flex flex-col gap-3">
+          <div className="mt-8 w-full rounded-2xl bg-white text-[#161616] shadow-xl p-4 flex flex-col gap-3">
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-full bg-neutral-200 flex items-center justify-center text-neutral-400 shrink-0">
                 <User size={22} />
