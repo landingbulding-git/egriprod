@@ -26,9 +26,6 @@ import {
 
 const BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 
-const SOCIAL_VIDEO = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/egrisocialproof.mp4';
-const SOCIAL_POSTER = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/egrisocialproof_poster.jpg';
-
 // Vercel image optimizer (prod only): serves right-sized webp instead of the full Blob originals.
 const responsive = (url: string, widths: number[], sizes: string) =>
   import.meta.env.PROD
@@ -120,6 +117,7 @@ interface TikTokTestimonial {
   quote: string;
   fullQuote: string;
   thumbnail: string;
+  video: string;
   thumbnailClass?: string;
   accentGradient: string;
   duration: string;
@@ -138,7 +136,8 @@ const TIKTOK_TESTIMONIALS: TikTokTestimonial[] = [
     role: 'Énekesnő & TikTok Alkotó',
     quote: 'The way to get started is to quit talking and begin.',
     fullQuote: 'Az EgriProd nélkül még mindig csak az asztalfióknak írnám a szövegeket. Egy profi stúdiócsapat, akik azonnal ráéreztek a stílusomra, és a dalunk 3 nap alatt a TikTok zenei toplistájára ugrott!',
-    thumbnail: SOCIAL_POSTER,
+    thumbnail: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/1_poster.jpg',
+    video: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/1.mp4',
     thumbnailClass: 'scale-[1.3] object-[center_20%] hue-rotate-15',
     accentGradient: 'from-purple-950/90 via-black/40 to-black/70',
     duration: '0:58',
@@ -155,7 +154,8 @@ const TIKTOK_TESTIMONIALS: TikTokTestimonial[] = [
     role: 'Showman & Előadó',
     quote: "Opportunities don't happen. You create them.",
     fullQuote: 'Egyetlen délután alatt összeraktuk az egész nótát Tiborral. Nem volt üres duma, csak kemény munka és prémium mastering. A TikTok algoritmus megőrült érte, azonnal kilőtt az űrbe!',
-    thumbnail: SOCIAL_POSTER,
+    thumbnail: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/2_poster.jpg',
+    video: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/2.mp4',
     thumbnailClass: 'scale-[1.25] object-[center_25%]',
     accentGradient: 'from-amber-950/90 via-black/40 to-black/70',
     duration: '1:14',
@@ -172,7 +172,8 @@ const TIKTOK_TESTIMONIALS: TikTokTestimonial[] = [
     role: 'Zenei Producer & Hitmaker',
     quote: 'Embracing the burn, redefining my limits',
     fullQuote: 'Nulláról a For You Page csúcsára. Az EgriProd lényege a gyorsaság, a radio-ready mastering és az, hogy 0% jogdíjat nyúlunk le a sikeredből. A dal 100%-ban a tied marad.',
-    thumbnail: SOCIAL_POSTER,
+    thumbnail: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/3_poster.jpg',
+    video: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/3.mp4',
     thumbnailClass: 'scale-[1.15] object-[center_35%]',
     accentGradient: 'from-neutral-950/95 via-black/40 to-black/70',
     duration: '1:28',
@@ -189,7 +190,8 @@ const TIKTOK_TESTIMONIALS: TikTokTestimonial[] = [
     role: 'Internetes Szenzáció',
     quote: 'It takes courage to grow up and become who you really are',
     fullQuote: 'Imádom a dalt, amit nekem készítettek! Több mint egymillióan énekelték a hookomat, mindenhol ez szól, amerre járok. Köszi Tibi és az EgriProd!',
-    thumbnail: SOCIAL_POSTER,
+    thumbnail: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/4_poster.jpg',
+    video: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/4.mp4',
     thumbnailClass: 'scale-[1.35] object-[center_35%]',
     accentGradient: 'from-rose-950/90 via-black/40 to-black/70',
     duration: '1:02',
@@ -206,7 +208,8 @@ const TIKTOK_TESTIMONIALS: TikTokTestimonial[] = [
     role: 'Fitness & Zenei Ikon',
     quote: 'Success is not in what you have, but who you are.',
     fullQuote: 'A fitnesztermekben és a klubokban is ez a zene pörög. Tiszta, masszív hangzás, nem gagyi házi demó, hanem igazi profi amerikai szintű produkció.',
-    thumbnail: SOCIAL_POSTER,
+    thumbnail: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/5_poster.jpg',
+    video: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/5.mp4',
     thumbnailClass: 'scale-[1.28] object-[center_45%] brightness-110',
     accentGradient: 'from-yellow-950/90 via-black/40 to-black/70',
     duration: '0:48',
@@ -1202,8 +1205,8 @@ export default function App() {
                         
                         {isCenter && activeVideo === item.id && (
                           <video
-                            src={SOCIAL_VIDEO}
-                            poster={SOCIAL_POSTER}
+                            src={item.video}
+                            poster={item.thumbnail}
                             controls
                             autoPlay
                             playsInline
