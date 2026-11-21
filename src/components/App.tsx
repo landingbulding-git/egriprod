@@ -2297,27 +2297,27 @@ export default function App() {
           </form>
 
           {/* Review (placeholder) */}
-          <div className="mt-8 w-full rounded-2xl bg-white text-[#161616] shadow-xl p-4 flex flex-col gap-3">
+          <div className="mt-8 w-full rounded-2xl bg-gradient-to-br from-white/[0.12] to-white/[0.03] backdrop-blur-xl border border-white/15 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_8px_32px_rgba(0,0,0,0.35)] p-4 flex flex-col gap-3">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-full bg-neutral-200 flex items-center justify-center text-neutral-400 shrink-0">
+              <div className="w-11 h-11 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-neutral-300 shrink-0">
                 <User size={22} />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="text-sm font-bold leading-tight">Név Placeholder</div>
                 <div className="flex items-center gap-2 text-[11px] text-neutral-400 mt-0.5">
                   <span>2026. nov. 21.</span>
-                  <span className="inline-flex items-center gap-1 font-semibold text-[#B9810F]">
+                  <span className="inline-flex items-center gap-1 font-semibold text-[#EAA824]">
                     <BadgeCheck size={13} />
                     Clipform hitelesített
                   </span>
                 </div>
               </div>
-              <div className="flex items-center gap-1 text-sm font-bold text-[#B9810F] self-start">
+              <div className="flex items-center gap-1 text-sm font-bold text-[#EAA824] self-start">
                 <Star size={14} fill="#EAA824" stroke="#EAA824" />
                 5
               </div>
             </div>
-            <p className="text-[13px] sm:text-sm text-neutral-700 leading-relaxed">
+            <p className="text-[13px] sm:text-sm text-neutral-300 leading-relaxed">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
             </p>
           </div>
