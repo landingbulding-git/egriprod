@@ -2297,27 +2297,29 @@ export default function App() {
           </form>
 
           {/* Review (placeholder) */}
-          <div className="mt-8 pt-6 border-t border-white/10 flex flex-col items-end text-right gap-3">
-            <div className="flex items-center gap-0.5">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <Star key={i} size={13} fill="#EAA824" stroke="#EAA824" />
-              ))}
-            </div>
-            <p className="text-[13px] sm:text-sm text-neutral-300 leading-relaxed max-w-sm">
-              “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.”
-            </p>
+          <div className="mt-8 ml-auto w-full max-w-sm rounded-2xl bg-white text-[#161616] shadow-xl p-4 flex flex-col gap-3">
             <div className="flex items-center gap-3">
-              <div className="flex flex-col items-end">
-                <span className="text-sm font-bold text-white">Név Placeholder</span>
-                <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#EAA824]">
-                  <BadgeCheck size={14} />
-                  Clipform hitelesített
-                </span>
+              <div className="w-11 h-11 rounded-full bg-neutral-200 flex items-center justify-center text-neutral-400 shrink-0">
+                <User size={22} />
               </div>
-              <div className="w-11 h-11 rounded-full bg-neutral-800 border border-white/15 flex items-center justify-center text-neutral-500 shrink-0">
-                <User size={20} />
+              <div className="flex-1 min-w-0">
+                <div className="text-sm font-bold leading-tight">Név Placeholder</div>
+                <div className="flex items-center gap-2 text-[11px] text-neutral-400 mt-0.5">
+                  <span>2026. nov. 21.</span>
+                  <span className="inline-flex items-center gap-1 font-semibold text-[#B9810F]">
+                    <BadgeCheck size={13} />
+                    Clipform hitelesített
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-center gap-1 text-sm font-bold text-[#B9810F] self-start">
+                <Star size={14} fill="#EAA824" stroke="#EAA824" />
+                5
               </div>
             </div>
+            <p className="text-[13px] sm:text-sm text-neutral-700 leading-relaxed">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+            </p>
           </div>
           </div>
         </div>
