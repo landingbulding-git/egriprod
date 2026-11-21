@@ -1242,15 +1242,6 @@ export default function App() {
                           className={`absolute inset-0 w-full h-full object-cover ${item.thumbnailClass || ''}`}
                         />
 
-                        {/* Domain-specific creator lighting mood */}
-                        <div className={`absolute inset-0 bg-gradient-to-t ${item.accentGradient} pointer-events-none opacity-60`} />
-
-                        {/* Top Gradient Scrim for speaker clarity */}
-                        <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black/80 via-black/20 to-transparent pointer-events-none" />
-                        
-                        {/* Bottom Gradient Scrim for text & overlay clarity */}
-                        <div className="absolute bottom-0 left-0 right-0 h-52 bg-gradient-to-t from-black/95 via-black/50 to-transparent pointer-events-none" />
-
                         {/* Centered Play Button on Active or Hover */}
                         <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
                           isCenter ? 'opacity-90 hover:opacity-100' : 'opacity-0'
@@ -1260,99 +1251,6 @@ export default function App() {
                           </div>
                         </div>
 
-                        {/* Top Status Indicators */}
-                        <div className="relative z-10 p-3 flex items-center justify-between text-[11px] text-white/70">
-                          <span className="font-mono text-[10px] tracking-wider text-red-400 font-bold flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                            LIVE
-                          </span>
-                          <span className="bg-black/50 backdrop-blur-xs px-2 py-0.5 rounded-full text-[10px] text-white/90 font-medium border border-white/10">
-                            {item.views}
-                          </span>
-                        </div>
-
-                        {/* Bottom Layer: Right Rail Actions & Left Content Overlay */}
-                        <div className="relative z-10 p-3 pt-0 flex items-end justify-between">
-                          
-                          {/* Bottom Left Info: Username, Subtitle, Bold Caption & Sound */}
-                          <div className="flex-1 pr-2 text-white">
-                            {/* Handle & Timestamp */}
-                            <div className="flex items-center gap-1.5 mb-1">
-                              <span className="font-bold text-[12px] sm:text-[13px] tracking-tight drop-shadow-md text-white">
-                                {item.username}
-                              </span>
-                              <span className="text-[10px] sm:text-[11px] text-white/70 font-mono">
-                                1:28
-                              </span>
-                            </div>
-
-                            {/* Hashtags Subtitle */}
-                            <p className="text-[10px] sm:text-[11px] text-white/80 font-normal line-clamp-1 mb-1.5">
-                              lorem ipsum #tiktok #reel
-                            </p>
-
-                            {/* Main Caption Quote */}
-                            <p className="text-[12px] sm:text-[13px] font-bold leading-[1.3] text-white drop-shadow-md line-clamp-2 mb-2">
-                              {item.quote}
-                            </p>
-
-                            {/* Audio Track Marquee */}
-                            <div className="flex items-center gap-1.5 text-[10px] text-white/90 drop-shadow-sm font-medium">
-                              <Music size={11} className="shrink-0 text-[#EAA824] animate-pulse" />
-                              <span className="truncate">{item.audioTrack}</span>
-                            </div>
-                          </div>
-
-                          {/* Right Action Rail (Avatar, Like, Comment, Share, Vinyl) */}
-                          <div className="flex flex-col items-center gap-2.5 shrink-0 ml-1">
-                            
-                            {/* Avatar with red plus follow badge */}
-                            <div className="relative flex flex-col items-center">
-                              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-white overflow-hidden bg-neutral-800 shadow-md">
-                                <img loading="lazy" decoding="async"
-                                  src={item.thumbnail}
-                                  alt={item.name}
-                                  className="w-full h-full object-cover"
-                                />
-                              </div>
-                              <div className="absolute -bottom-1.5 w-4 h-4 rounded-full bg-[#FE2C55] text-white flex items-center justify-center shadow-xs">
-                                <Plus size={11} strokeWidth={3} />
-                              </div>
-                            </div>
-
-                            {/* Heart Icon & Like Count */}
-                            <div className="flex flex-col items-center gap-0.5">
-                              <Heart size={20} fill="white" className="text-white drop-shadow-md" />
-                              <span className="text-white text-[10px] font-bold tracking-tight drop-shadow-md">
-                                {item.likes}
-                              </span>
-                            </div>
-
-                            {/* Message Icon & Comment Count */}
-                            <div className="flex flex-col items-center gap-0.5">
-                              <MessageCircle size={20} fill="white" className="text-white drop-shadow-md" />
-                              <span className="text-white text-[10px] font-bold tracking-tight drop-shadow-md">
-                                {item.comments}
-                              </span>
-                            </div>
-
-                            {/* Share Icon & Label */}
-                            <div className="flex flex-col items-center gap-0.5">
-                              <Share2 size={20} fill="white" className="text-white drop-shadow-md" />
-                              <span className="text-white text-[10px] font-bold tracking-tight drop-shadow-md">
-                                {item.shares}
-                              </span>
-                            </div>
-
-                            {/* Spinning Vinyl Record */}
-                            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#111] border-[2px] border-neutral-700 p-0.5 flex items-center justify-center shadow-lg animate-[spin_4s_linear_infinite]">
-                              <div className="w-3.5 h-3.5 rounded-full bg-[#EAA824] flex items-center justify-center">
-                                <div className="w-1.5 h-1.5 rounded-full bg-black" />
-                              </div>
-                            </div>
-
-                          </div>
-                        </div>
 
                       </div>
                     </div>
