@@ -5,6 +5,7 @@ import {
   ArrowRight, 
   Star,
   Play,
+  Pause,
   Volume2,
   Edit2,
   Check,
@@ -34,6 +35,11 @@ const responsive = (url: string, widths: number[], sizes: string) =>
         sizes,
       }
     : {};
+
+const AUDIO_TRACKS = {
+  raw: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/sing/raw.mp3',
+  done: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/sing/done.mp3',
+};
 
 interface SocialClient {
   name: string;
@@ -242,7 +248,7 @@ const PRICING_TIERS: PricingTier[] = [
     id: 'tier-1',
     name: 'Saját Dal + Lyrics Videó',
     image: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/pricing1.webp',
-    price: '180.000 Ft – 220.000 Ft',
+    price: '249.990 Ft-tól',
     goal: 'Megírjuk a szöveget, elkészítjük a zenét, és felvesszük a dalodat – akár otthonról is, utazás nélkül. Kapsz hozzá egy profi dalszöveges videót és borítóképet, hogy rögtön felrakhasd a YouTube-ra. Minden 7 munkanap alatt elkészül, és a dal 100%-ban a tiéd marad.',
     badge: null,
     isPopular: false,
@@ -260,7 +266,7 @@ const PRICING_TIERS: PricingTier[] = [
     id: 'tier-2',
     name: 'Dal + Stúdióklip + Promo',
     image: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/pricing2.webp',
-    price: '320.000 Ft – 380.000 Ft',
+    price: '349.990 Ft-tól',
     goal: 'Megkapod a teljes kész dalodat, és mellé forgatunk egy profi videóklipet a stúdióban. Készítünk veled egy podcast-beszélgetést is, és ebből a kettőből összevágunk neked 20 rövid videót TikTokra, Instagramra, Facebookra és YouTube-ra. Így 7 munkanap alatt nemcsak egy saját dalod lesz, hanem 20 kész videód is, amivel azonnal reklámozhatod a zenédet.',
     badge: 'LEGNÉPSZERŰBB',
     isPopular: true,
@@ -278,7 +284,7 @@ const PRICING_TIERS: PricingTier[] = [
     id: 'tier-3',
     name: 'Dal + Külsős Klip + Promo',
     image: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/pricing3.webp',
-    price: '550.000 Ft – 750.000 Ft',
+    price: '499.990 Ft-tól',
     goal: 'Ebben a csomagban benne van a kész dalod, a podcast-felvétel és a 20 rövid közösségi médiás videó is. A legnagyobb extra, hogy a videóklipet egy külső helyszínen forgatjuk le, amit mi szervezünk le helyetted. Neked csak el kell jönnöd a megadott címre, és 7 munkanap múlva a tiéd a kész klip és a 100%-ban saját jogú dalod.',
     badge: 'VIP',
     isPopular: false,
@@ -732,6 +738,20 @@ export default function App() {
 
   const [selectedPackage, setSelectedPackage] = useState('');
   const [isSending, setIsSending] = useState(false);
+  const [playingTrack, setPlayingTrack] = useState<'raw' | 'done' | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const toggleTrack = (id: 'raw' | 'done') => {
+    audioRef.current?.pause();
+    if (playingTrack === id) {
+      setPlayingTrack(null);
+      return;
+    }
+    const a = new Audio(AUDIO_TRACKS[id]);
+    a.onended = () => setPlayingTrack(null);
+    a.play().catch(() => setPlayingTrack(null));
+    audioRef.current = a;
+    setPlayingTrack(id);
+  };
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const bonusRowRef = useRef<HTMLDivElement>(null);
   const [isDraggingBonuses, setIsDraggingBonuses] = useState(false);
@@ -1654,11 +1674,11 @@ export default function App() {
               <div className="flex flex-col gap-4">
                 
                 {/* Norbi Track (Before) */}
-                <div className="group flex items-center justify-between p-3 sm:p-4 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all cursor-pointer">
+                <div onClick={() => toggleTrack('raw')} className="cursor-pointer group flex items-center justify-between p-3 sm:p-4 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all cursor-pointer">
                   <div className="flex items-center gap-4 overflow-hidden">
                     {/* Play Button (Shown by default) */}
                     <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-[#EAA824] transition-colors">
-                      <Play size={14} fill="currentColor" className="ml-0.5 text-white group-hover:text-black" />
+                      {playingTrack === 'raw' ? <Pause size={14} fill="currentColor" className="text-white group-hover:text-black" /> : <Play size={14} fill="currentColor" className="ml-0.5 text-white group-hover:text-black" />}
                     </div>
                     
                     {/* Album Cover (Sticker) */}
@@ -1692,14 +1712,14 @@ export default function App() {
                 </div>
 
                 {/* Tibi Track (After) */}
-                <div className="group flex items-center justify-between p-3 sm:p-4 rounded-xl bg-white/10 backdrop-blur-2xl border border-[#EAA824]/20 hover:bg-white/15 transition-all cursor-pointer relative overflow-hidden shadow-[0_0_40px_rgba(234,168,36,0.05)]">
+                <div onClick={() => toggleTrack('done')} className="cursor-pointer group flex items-center justify-between p-3 sm:p-4 rounded-xl bg-white/10 backdrop-blur-2xl border border-[#EAA824]/20 hover:bg-white/15 transition-all cursor-pointer relative overflow-hidden shadow-[0_0_40px_rgba(234,168,36,0.05)]">
                   {/* Subtle glow effect for the "Good" track */}
                   <div className="absolute inset-0 bg-gradient-to-r from-[#EAA824]/5 to-transparent pointer-events-none" />
                   
                   <div className="flex items-center gap-4 overflow-hidden relative z-10">
                     {/* Play Button (Shown by default) */}
                     <div className="w-8 h-8 rounded-full bg-[#EAA824]/20 flex items-center justify-center shrink-0 group-hover:bg-[#EAA824] transition-colors">
-                      <Play size={14} fill="currentColor" className="ml-0.5 text-[#EAA824] group-hover:text-black" />
+                      {playingTrack === 'done' ? <Pause size={14} fill="currentColor" className="text-[#EAA824] group-hover:text-black" /> : <Play size={14} fill="currentColor" className="ml-0.5 text-[#EAA824] group-hover:text-black" />}
                     </div>
                     
                     {/* Album Cover (Sticker) */}
