@@ -2201,21 +2201,18 @@ export default function App() {
       {/* ================================================================ */}
       {/* CLOSER: Video (9:16 placeholder) + Contact form                  */}
       {/* ================================================================ */}
-      <section id="closer" className="w-full bg-[#F4EFE6] border-t border-[#DFD8CC] text-[#161616]">
-        <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] lg:min-h-screen">
+      <section id="closer" className="w-full py-16 sm:py-24 px-4 sm:px-10 lg:px-16 bg-white text-white">
+        <div className="max-w-6xl mx-auto rounded-[28px] sm:rounded-[36px] bg-[#0E0F14] border border-neutral-800 shadow-2xl grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-10 lg:gap-16 items-center p-6 sm:p-10 lg:p-14">
           {/* Left: 9:16 video placeholder */}
-          <div className="bg-[#0E0F14] flex items-center justify-center px-6 py-16 sm:py-20">
-            <div className="w-full max-w-[320px] sm:max-w-[360px] aspect-[9/16] rounded-[28px] bg-[#13141A] border border-neutral-800 shadow-2xl flex items-center justify-center">
-              <div className="w-16 h-16 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white">
-                <Play size={26} fill="currentColor" className="ml-1" />
-              </div>
+          <div className="w-full max-w-[300px] sm:max-w-[340px] mx-auto aspect-[9/16] rounded-[24px] bg-[#161822] border border-neutral-800 flex items-center justify-center">
+            <div className="w-16 h-16 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white">
+              <Play size={26} fill="currentColor" className="ml-1" />
             </div>
           </div>
 
           {/* Right: form */}
-          <div className="flex items-center justify-center px-6 sm:px-10 lg:px-16 py-16 sm:py-20">
           <form
-            className="w-full max-w-md space-y-5"
+            className="w-full max-w-lg mx-auto lg:mx-0 space-y-5"
             onSubmit={(e) => {
               e.preventDefault();
               showToast('Köszönjük! Hamarosan jelentkezünk.');
@@ -2225,56 +2222,55 @@ export default function App() {
           >
             <input type="hidden" name="package" value={selectedPackage} />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <label className="block">
-                <span className="block text-[12px] font-bold uppercase tracking-[0.15em] text-neutral-500 mb-1.5">Vezetéknév</span>
-                <input
-                  name="lastName"
-                  type="text"
-                  autoComplete="family-name"
-                  required
-                  className="w-full px-4 py-3.5 rounded-xl bg-white border border-[#DFD8CC] text-[#161616] text-base focus:outline-none focus:border-[#EAA824] focus:ring-2 focus:ring-[#EAA824]/30 transition"
-                />
-              </label>
-              <label className="block">
-                <span className="block text-[12px] font-bold uppercase tracking-[0.15em] text-neutral-500 mb-1.5">Keresztnév</span>
-                <input
-                  name="firstName"
-                  type="text"
-                  autoComplete="given-name"
-                  required
-                  className="w-full px-4 py-3.5 rounded-xl bg-white border border-[#DFD8CC] text-[#161616] text-base focus:outline-none focus:border-[#EAA824] focus:ring-2 focus:ring-[#EAA824]/30 transition"
-                />
-              </label>
+                <label className="block">
+                  <span className="block text-[11px] font-bold uppercase tracking-[0.15em] text-neutral-300 mb-2">Vezetéknév <span className="text-[#EAA824]">*</span></span>
+                  <input
+                    name="lastName"
+                    type="text"
+                    autoComplete="family-name"
+                    required
+                    className="w-full px-5 py-4 rounded-2xl bg-white/5 border border-white/10 text-white text-base focus:outline-none focus:border-[#EAA824] focus:ring-2 focus:ring-[#EAA824]/30 transition"
+                  />
+                </label>
+                <label className="block">
+                  <span className="block text-[11px] font-bold uppercase tracking-[0.15em] text-neutral-300 mb-2">Keresztnév <span className="text-[#EAA824]">*</span></span>
+                  <input
+                    name="firstName"
+                    type="text"
+                    autoComplete="given-name"
+                    required
+                    className="w-full px-5 py-4 rounded-2xl bg-white/5 border border-white/10 text-white text-base focus:outline-none focus:border-[#EAA824] focus:ring-2 focus:ring-[#EAA824]/30 transition"
+                  />
+                </label>
             </div>
-              <label className="block">
-                <span className="block text-[12px] font-bold uppercase tracking-[0.15em] text-neutral-500 mb-1.5">Telefonszám</span>
-                <input
-                  name="phone"
-                  type="tel"
-                  autoComplete="tel"
-                  required
-                  className="w-full px-4 py-3.5 rounded-xl bg-white border border-[#DFD8CC] text-[#161616] text-base focus:outline-none focus:border-[#EAA824] focus:ring-2 focus:ring-[#EAA824]/30 transition"
-                />
-              </label>
-              <label className="block">
-                <span className="block text-[12px] font-bold uppercase tracking-[0.15em] text-neutral-500 mb-1.5">E-mail cím</span>
-                <input
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="w-full px-4 py-3.5 rounded-xl bg-white border border-[#DFD8CC] text-[#161616] text-base focus:outline-none focus:border-[#EAA824] focus:ring-2 focus:ring-[#EAA824]/30 transition"
-                />
-              </label>
+                <label className="block">
+                  <span className="block text-[11px] font-bold uppercase tracking-[0.15em] text-neutral-300 mb-2">Telefonszám <span className="text-[#EAA824]">*</span></span>
+                  <input
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    required
+                    className="w-full px-5 py-4 rounded-2xl bg-white/5 border border-white/10 text-white text-base focus:outline-none focus:border-[#EAA824] focus:ring-2 focus:ring-[#EAA824]/30 transition"
+                  />
+                </label>
+                <label className="block">
+                  <span className="block text-[11px] font-bold uppercase tracking-[0.15em] text-neutral-300 mb-2">E-mail cím <span className="text-[#EAA824]">*</span></span>
+                  <input
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    className="w-full px-5 py-4 rounded-2xl bg-white/5 border border-white/10 text-white text-base focus:outline-none focus:border-[#EAA824] focus:ring-2 focus:ring-[#EAA824]/30 transition"
+                  />
+                </label>
             <button
               type="submit"
-              className="w-full py-4 px-5 rounded-xl bg-[#EAA824] hover:bg-[#ffba2e] text-black font-bold text-sm tracking-wide flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 cursor-pointer"
+              className="w-full py-4 px-5 rounded-2xl bg-[#EAA824] hover:bg-[#ffba2e] text-black font-bold text-sm tracking-wide flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 cursor-pointer"
             >
               <span>Küldés</span>
               <ArrowRight size={14} />
             </button>
           </form>
-          </div>
         </div>
       </section>
 
