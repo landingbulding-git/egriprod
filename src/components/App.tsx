@@ -2201,18 +2201,21 @@ export default function App() {
       {/* ================================================================ */}
       {/* CLOSER: Video (9:16 placeholder) + Contact form                  */}
       {/* ================================================================ */}
-      <section id="closer" className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] border-t border-[#DFD8CC] text-[#161616]">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <section id="closer" className="w-full bg-[#F4EFE6] border-t border-[#DFD8CC] text-[#161616]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-screen">
           {/* Left: 9:16 video placeholder */}
-          <div className="w-full max-w-[320px] sm:max-w-[360px] mx-auto aspect-[9/16] rounded-[28px] bg-[#13141A] border border-neutral-800 shadow-2xl flex items-center justify-center">
-            <div className="w-16 h-16 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white">
-              <Play size={26} fill="currentColor" className="ml-1" />
+          <div className="bg-[#0E0F14] flex items-center justify-center px-6 py-16 sm:py-20">
+            <div className="w-full max-w-[320px] sm:max-w-[360px] aspect-[9/16] rounded-[28px] bg-[#13141A] border border-neutral-800 shadow-2xl flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white">
+                <Play size={26} fill="currentColor" className="ml-1" />
+              </div>
             </div>
           </div>
 
           {/* Right: form */}
+          <div className="flex items-center justify-center px-6 sm:px-10 lg:px-16 py-16 sm:py-20">
           <form
-            className="w-full max-w-lg mx-auto lg:mx-0 space-y-5"
+            className="w-full max-w-md space-y-5"
             onSubmit={(e) => {
               e.preventDefault();
               showToast('Köszönjük! Hamarosan jelentkezünk.');
@@ -2271,6 +2274,7 @@ export default function App() {
               <ArrowRight size={14} />
             </button>
           </form>
+          </div>
         </div>
       </section>
 
