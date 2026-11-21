@@ -1242,6 +1242,15 @@ export default function App() {
                           className={`absolute inset-0 w-full h-full object-cover ${item.thumbnailClass || ''}`}
                         />
 
+                        {/* Domain-specific creator lighting mood */}
+                        <div className={`absolute inset-0 bg-gradient-to-t ${item.accentGradient} pointer-events-none opacity-60`} />
+
+                        {/* Top Gradient Scrim for speaker clarity */}
+                        <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black/80 via-black/20 to-transparent pointer-events-none" />
+
+                        {/* Bottom Gradient Scrim for text & overlay clarity */}
+                        <div className="absolute bottom-0 left-0 right-0 h-52 bg-gradient-to-t from-black/95 via-black/50 to-transparent pointer-events-none" />
+
                         {/* Centered Play Button on Active or Hover */}
                         <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
                           isCenter ? 'opacity-90 hover:opacity-100' : 'opacity-0'
@@ -1249,6 +1258,13 @@ export default function App() {
                           <div className="w-13 h-13 rounded-full bg-black/60 backdrop-blur-xs border border-white/20 flex items-center justify-center text-white shadow-2xl hover:scale-110 hover:bg-[#EAA824] hover:text-black hover:border-transparent transition-all">
                             <Play size={22} fill="currentColor" className="ml-0.5" />
                           </div>
+                        </div>
+
+                        {/* Username */}
+                        <div className="relative z-10 p-3 mt-auto">
+                          <span className="font-bold text-[12px] sm:text-[13px] tracking-tight drop-shadow-md text-white">
+                            {item.username}
+                          </span>
                         </div>
 
 
