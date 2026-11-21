@@ -273,7 +273,7 @@ const PRICING_TIERS: PricingTier[] = [
     goal: 'Megírjuk a szöveget, elkészítjük a zenét, és felvesszük a dalodat – akár otthonról is, utazás nélkül. Kapsz hozzá egy profi dalszöveges videót és borítóképet, hogy rögtön felrakhasd a YouTube-ra. Minden 7 munkanap alatt elkészül, és a dal 100%-ban a tiéd marad.',
     badge: null,
     isPopular: false,
-    ctaText: 'Kérem a Belépő Csomagot',
+    ctaText: 'Beszéljünk 15 percet ingyen',
     features: [
       { label: 'Zenei alap & Mix/Master', value: 'Exkluzív custom beat + rádiós utómunka' },
       { label: 'Dalszöveg', value: 'Hozott szöveg „Sláger Audittal” és ritmikai javítással' },
@@ -291,7 +291,7 @@ const PRICING_TIERS: PricingTier[] = [
     goal: 'Megkapod a teljes kész dalodat, és mellé forgatunk egy profi videóklipet a stúdióban. Készítünk veled egy podcast-beszélgetést is, és ebből a kettőből összevágunk neked 20 rövid videót TikTokra, Instagramra, Facebookra és YouTube-ra. Így 7 munkanap alatt nemcsak egy saját dalod lesz, hanem 20 kész videód is, amivel azonnal reklámozhatod a zenédet.',
     badge: 'LEGNÉPSZERŰBB',
     isPopular: true,
-    ctaText: 'Csinálj nekem is Tiktok slágert!',
+    ctaText: 'Beszéljünk 15 percet ingyen',
     features: [
       { label: 'Zenei alap & Mix/Master', value: 'Exkluzív custom beat + rádiós utómunka' },
       { label: 'Dalszöveg', value: '100% DFY Ghostwriting (a teljes szöveget mi írjuk neked)' },
@@ -309,7 +309,7 @@ const PRICING_TIERS: PricingTier[] = [
     goal: 'Ebben a csomagban benne van a kész dalod, a podcast-felvétel és a 20 rövid közösségi médiás videó is. A legnagyobb extra, hogy a videóklipet egy külső helyszínen forgatjuk le, amit mi szervezünk le helyetted. Neked csak el kell jönnöd a megadott címre, és 7 munkanap múlva a tiéd a kész klip és a 100%-ban saját jogú dalod.',
     badge: 'VIP',
     isPopular: false,
-    ctaText: 'Jelentkezem a VIP Áttörésre',
+    ctaText: 'Beszéljünk 15 percet ingyen',
     features: [
       { label: 'Zenei alap & Mix/Master', value: 'Prémium custom beat + rádiós utómunka' },
       { label: 'Dalszöveg', value: '100% DFY Ghostwriting (személyre szabott, virális fókusz)' },
@@ -1091,7 +1091,7 @@ export default function App() {
                 onClick={() => showToast('Induljon a slágerkészítés!')}
                 className="group px-7 py-3.5 rounded-full bg-[#181818] text-[#F4EFE6] text-xs sm:text-sm font-semibold tracking-wide flex items-center gap-2.5 hover:bg-black transition-all shadow-md active:scale-95 cursor-pointer"
               >
-                <span>Csinálj nekem is Tiktok slágert!</span>
+                <span>Beszéljünk 15 percet ingyen</span>
                 <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
@@ -2292,7 +2292,7 @@ export default function App() {
               type="submit"
               className="w-full py-3.5 px-5 rounded-xl font-bold text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 cursor-pointer bg-[#EAA824] text-black hover:bg-[#ffba2e]"
             >
-              <span>Küldés</span>
+              <span>Beszéljünk 15 percet ingyen</span>
               <ArrowRight size={14} />
             </button>
           </form>
