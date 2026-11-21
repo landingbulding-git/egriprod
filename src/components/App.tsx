@@ -1103,7 +1103,7 @@ export default function App() {
       {/* ============================================================ */}
       {/* VIDEO TESTIMONIALS SECTION: TIKTOK 3D PHONE MOCKUP CAROUSEL   */}
       {/* ============================================================ */}
-      <section className="relative w-full bg-[#0D0F14] pt-16 sm:pt-24 pb-24 overflow-hidden border-t border-[#232630]">
+      <section className="relative w-full bg-[#0D0F14] pt-16 sm:pt-24 pb-24 overflow-hidden">
         
         {/* Subtle ambient gradient backdrops matching reference */}
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none" />
@@ -1392,7 +1392,7 @@ export default function App() {
       {/* ============================================================ */}
       {/* THE BRUTAL REALITY / PAIN POINTS SECTION                     */}
       {/* ============================================================ */}
-      <section className="w-full py-16 sm:py-24 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] border-t border-[#DFD8CC] text-[#161616]">
+      <section className="w-full py-16 sm:py-24 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] text-[#161616]">
         <div className="max-w-3xl mx-auto">
           
           {/* Section Header */}
@@ -1511,7 +1511,7 @@ export default function App() {
       {/* ============================================================ */}
       {/* TEAM SECTION: Kik vagytok amúgy?                             */}
       {/* ============================================================ */}
-      <section className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] border-t border-[#DFD8CC] text-[#161616]">
+      <section className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] text-[#161616]">
         <div className="max-w-6xl mx-auto">
           
           {/* Section Header */}
@@ -1657,7 +1657,7 @@ export default function App() {
       {/* ============================================================ */}
       {/* BEFORE/AFTER AUDIO SHOWCASE SECTION                          */}
       {/* ============================================================ */}
-      <section className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#0E0F14] text-white border-t border-neutral-800 relative overflow-hidden">
+      <section className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#0E0F14] text-white relative overflow-hidden">
         {/* Subtle atmospheric ambient glow */}
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#EAA824]/5 rounded-full blur-[140px] pointer-events-none" />
         
@@ -1780,7 +1780,7 @@ export default function App() {
       {/* ============================================================ */}
       {/* VIDEO PRODUCTION SHOWCASE SECTION                            */}
       {/* ============================================================ */}
-      <section className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] border-t border-[#DFD8CC] text-[#161616]">
+      <section className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] text-[#161616]">
         <div className="max-w-6xl mx-auto">
           
           <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16 mb-12 sm:mb-16">
@@ -1847,7 +1847,7 @@ export default function App() {
       {/* ============================================================ */}
       {/* PRICING & SLÁGERCSOMAGOK SECTION                             */}
       {/* ============================================================ */}
-      <section className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#0E0F14] text-white border-t border-neutral-800 relative overflow-hidden">
+      <section className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#0E0F14] text-white relative overflow-hidden">
         {/* Subtle atmospheric ambient glow */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[#EAA824]/5 rounded-full blur-[140px] pointer-events-none" />
 
@@ -1995,7 +1995,7 @@ export default function App() {
       {/* ============================================================ */}
       {/* BONUSES SECTION (Horizontal Bonus Cards)                     */}
       {/* ============================================================ */}
-      <section className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] border-t border-[#DFD8CC] text-[#161616] overflow-hidden">
+      <section className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] text-[#161616] overflow-hidden">
         <div className="max-w-7xl mx-auto">
           {/* Section Header + Horizontal Scroll Controls */}
           <div className="flex items-end justify-between gap-6 mb-10 sm:mb-14">
@@ -2111,7 +2111,7 @@ export default function App() {
       {/* ============================================================ */}
       {/* GUARANTEES SECTION (5 Fanned Cards)                          */}
       {/* ============================================================ */}
-      <section className="w-full py-20 sm:py-28 px-4 sm:px-10 lg:px-16 bg-[#0E0F14] text-white border-t border-neutral-800 relative overflow-hidden">
+      <section className="w-full py-20 sm:py-28 px-4 sm:px-10 lg:px-16 bg-[#0E0F14] text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
@@ -2205,7 +2205,7 @@ export default function App() {
       {/* ================================================================ */}
       {/* CLOSER: Video (9:16 placeholder) + Contact form                  */}
       {/* ================================================================ */}
-      <section id="closer" className="w-full py-16 sm:py-24 px-4 sm:px-10 lg:px-16 bg-[#0E0F14] border-t border-neutral-800 text-white">
+      <section id="closer" className="w-full py-16 sm:py-24 px-4 sm:px-10 lg:px-16 bg-[#0E0F14] text-white">
         <div className="max-w-6xl mx-auto rounded-[28px] sm:rounded-[36px] bg-[#0E0F14] border border-white/10 shadow-[0_0_80px_-10px_rgba(255,255,255,0.10)] grid grid-cols-1 lg:grid-cols-[2fr_3fr] items-stretch overflow-hidden">
           {/* Left: 9:16 video placeholder */}
           <div className="w-full aspect-[9/16] max-h-[560px] lg:max-h-none lg:aspect-auto lg:h-full bg-[#161822] flex items-center justify-center">
