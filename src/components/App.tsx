@@ -2202,7 +2202,7 @@ export default function App() {
       {/* CLOSER: Video (9:16 placeholder) + Contact form                  */}
       {/* ================================================================ */}
       <section id="closer" className="w-full bg-[#F4EFE6] border-t border-[#DFD8CC] text-[#161616]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-screen">
+        <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] lg:min-h-screen">
           {/* Left: 9:16 video placeholder */}
           <div className="bg-[#0E0F14] flex items-center justify-center px-6 py-16 sm:py-20">
             <div className="w-full max-w-[320px] sm:max-w-[360px] aspect-[9/16] rounded-[28px] bg-[#13141A] border border-neutral-800 shadow-2xl flex items-center justify-center">
