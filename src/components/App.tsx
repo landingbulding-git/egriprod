@@ -753,6 +753,7 @@ export default function App() {
   const [activeAdiVideoId, setActiveAdiVideoId] = useState('1olG4omyNe8');
   const [activeGuaranteeIndex, setActiveGuaranteeIndex] = useState<number>(2); // Center card active by default
 
+  const [selectedPackage, setSelectedPackage] = useState('');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const bonusRowRef = useRef<HTMLDivElement>(null);
   const [isDraggingBonuses, setIsDraggingBonuses] = useState(false);
@@ -1911,7 +1912,11 @@ export default function App() {
                   {/* CTA Button */}
                   <div className="mt-auto">
                     <button
-                      onClick={() => showToast(`Kiválasztva: ${tier.name}`)}
+                      onClick={() => {
+                        setSelectedPackage(tier.name);
+                        showToast(`Kiválasztva: ${tier.name}`);
+                        document.getElementById('closer')?.scrollIntoView({ behavior: 'smooth' });
+                      }}
                       className={`w-full py-3.5 px-5 rounded-xl font-semibold text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 cursor-pointer ${
                         tier.isPopular
                           ? 'bg-[#EAA824] text-black hover:bg-[#ffba2e] font-bold'
@@ -2190,6 +2195,82 @@ export default function App() {
               <ChevronRight size={18} />
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* ================================================================ */}
+      {/* CLOSER: Video (9:16 placeholder) + Contact form                  */}
+      {/* ================================================================ */}
+      <section id="closer" className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] border-t border-[#DFD8CC] text-[#161616]">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left: 9:16 video placeholder */}
+          <div className="w-full max-w-[320px] sm:max-w-[360px] mx-auto aspect-[9/16] rounded-[28px] bg-[#13141A] border border-neutral-800 shadow-2xl flex items-center justify-center">
+            <div className="w-16 h-16 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white">
+              <Play size={26} fill="currentColor" className="ml-1" />
+            </div>
+          </div>
+
+          {/* Right: form */}
+          <form
+            className="w-full max-w-lg mx-auto lg:mx-0 space-y-5"
+            onSubmit={(e) => {
+              e.preventDefault();
+              showToast('Köszönjük! Hamarosan jelentkezünk.');
+              e.currentTarget.reset();
+              setSelectedPackage('');
+            }}
+          >
+            <input type="hidden" name="package" value={selectedPackage} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <label className="block">
+                <span className="block text-[12px] font-bold uppercase tracking-[0.15em] text-neutral-500 mb-1.5">Vezetéknév</span>
+                <input
+                  name="lastName"
+                  type="text"
+                  autoComplete="family-name"
+                  required
+                  className="w-full px-4 py-3.5 rounded-xl bg-white border border-[#DFD8CC] text-[#161616] text-base focus:outline-none focus:border-[#EAA824] focus:ring-2 focus:ring-[#EAA824]/30 transition"
+                />
+              </label>
+              <label className="block">
+                <span className="block text-[12px] font-bold uppercase tracking-[0.15em] text-neutral-500 mb-1.5">Keresztnév</span>
+                <input
+                  name="firstName"
+                  type="text"
+                  autoComplete="given-name"
+                  required
+                  className="w-full px-4 py-3.5 rounded-xl bg-white border border-[#DFD8CC] text-[#161616] text-base focus:outline-none focus:border-[#EAA824] focus:ring-2 focus:ring-[#EAA824]/30 transition"
+                />
+              </label>
+            </div>
+              <label className="block">
+                <span className="block text-[12px] font-bold uppercase tracking-[0.15em] text-neutral-500 mb-1.5">Telefonszám</span>
+                <input
+                  name="phone"
+                  type="tel"
+                  autoComplete="tel"
+                  required
+                  className="w-full px-4 py-3.5 rounded-xl bg-white border border-[#DFD8CC] text-[#161616] text-base focus:outline-none focus:border-[#EAA824] focus:ring-2 focus:ring-[#EAA824]/30 transition"
+                />
+              </label>
+              <label className="block">
+                <span className="block text-[12px] font-bold uppercase tracking-[0.15em] text-neutral-500 mb-1.5">E-mail cím</span>
+                <input
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  className="w-full px-4 py-3.5 rounded-xl bg-white border border-[#DFD8CC] text-[#161616] text-base focus:outline-none focus:border-[#EAA824] focus:ring-2 focus:ring-[#EAA824]/30 transition"
+                />
+              </label>
+            <button
+              type="submit"
+              className="w-full py-4 px-5 rounded-xl bg-[#EAA824] hover:bg-[#ffba2e] text-black font-bold text-sm tracking-wide flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 cursor-pointer"
+            >
+              <span>Küldés</span>
+              <ArrowRight size={14} />
+            </button>
+          </form>
         </div>
       </section>
 
