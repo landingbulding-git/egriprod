@@ -728,6 +728,7 @@ export default function App() {
   const [activeGuaranteeIndex, setActiveGuaranteeIndex] = useState<number>(2); // Center card active by default
 
   const [selectedPackage, setSelectedPackage] = useState('');
+  const [isSending, setIsSending] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const bonusRowRef = useRef<HTMLDivElement>(null);
   const [isDraggingBonuses, setIsDraggingBonuses] = useState(false);
@@ -2192,14 +2193,32 @@ export default function App() {
           </h2>
           <form
             className="space-y-5"
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              showToast('Köszönjük! Hamarosan jelentkezünk.');
-              e.currentTarget.reset();
-              setSelectedPackage('');
+              const form = e.currentTarget;
+              const data = new FormData(form);
+              data.append('access_key', '3f1bdd4c-0339-49d8-8990-5e853bba5320'); // public by design; restrict to your domain in the Web3Forms dashboard
+              data.append('subject', 'Új jelentkezés – EgriProd');
+              data.append('from_name', 'EgriProd weboldal');
+              data.append('name', `${data.get('lastName')} ${data.get('firstName')}`);
+              if (!data.get('package')) data.set('package', 'Nincs kiválasztva');
+              setIsSending(true);
+              try {
+                const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+                const json = await res.json();
+                if (!json.success) throw new Error(json.message);
+                showToast('Köszönjük! Hamarosan jelentkezünk.');
+                form.reset();
+                setSelectedPackage('');
+              } catch {
+                showToast('Hiba történt, kérlek próbáld újra.');
+              } finally {
+                setIsSending(false);
+              }
             }}
           >
             <input type="hidden" name="package" value={selectedPackage} />
+            <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <label className="block">
                 <span className="block text-[11px] font-bold uppercase tracking-[0.15em] text-neutral-400 mb-2">Vezetéknév <span className="text-[#EAA824]">*</span></span>
@@ -2260,7 +2279,8 @@ export default function App() {
               </label>
             <button
               type="submit"
-              className="w-full py-3.5 px-5 rounded-xl font-bold text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 cursor-pointer bg-[#EAA824] text-black hover:bg-[#ffba2e]"
+              disabled={isSending}
+              className="disabled:opacity-60 disabled:cursor-wait w-full py-3.5 px-5 rounded-xl font-bold text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 cursor-pointer bg-[#EAA824] text-black hover:bg-[#ffba2e]"
             >
               <span>Beszéljünk 15 percet ingyen</span>
               <ArrowRight size={14} />
