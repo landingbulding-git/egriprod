@@ -1059,7 +1059,7 @@ export default function App() {
             {/* Bottom Action Row: CTA button */}
             <div className="pt-1">
               <button
-                onClick={() => showToast('Induljon a slágerkészítés!')}
+                onClick={() => document.getElementById('closer')?.scrollIntoView({ behavior: 'smooth' })}
                 className="group px-7 py-3.5 rounded-full bg-[#181818] text-[#F4EFE6] text-xs sm:text-sm font-semibold tracking-wide flex items-center gap-2.5 hover:bg-black transition-all shadow-md active:scale-95 cursor-pointer"
               >
                 <span>Beszéljünk 15 percet ingyen</span>
