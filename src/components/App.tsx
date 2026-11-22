@@ -1294,7 +1294,7 @@ export default function App() {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-[14px] sm:text-[16px] leading-[1.65] text-[#22201D] font-normal">
-                  A menedzsmentek beígérik a csillagokat, aztán aláíratnak veled egy szerződést, amivel lenyúlják a dalaid jogait, a fellépési pénzeidet, meg a streaming-bevételeid felét. Rabszolga leszel a saját neved alatt.
+                  A stúdiók beígérik a csillagokat, aztán aláíratnak veled egy szerződést, amivel lenyúlják a dalaid jogait, a fellépési pénzeidet, meg a streaming-bevételeid felét. Rabszolga leszel a saját neved alatt.
                 </p>
               </div>
             </div>
@@ -1404,7 +1404,7 @@ export default function App() {
                   <span className="w-2.5 h-2.5 rounded-full bg-[#EAA824]" />
                 </h3>
                 <p className="text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.7] text-[#3e3b36] font-normal mb-6">
-                  A csávó konkrétan hamarabb baszkurálta az FL Studiót and ugatott a mikrofonba, mint hogy megtanult volna rendesen járni. Amióta az eszét tudja, alapokat veret, énekel, meg járja a színpadokat. Betegesen imádja ezt a szart. Az első ótvar hangfájlodtól a kész maszterig fogni fogja a kezedet, nem engedi el, amíg a legbénább gányolásodból is olyan pusztító banger nem lesz, amitől a TikTokon összefossák magukat az emberek. Ha vele dolgozol, nem kérdés, hogy sikeres lesz a cuccod.
+                  A csávó konkrétan hamarabb baszkurálta az FL Studiót és nyikorgott a mikrofonba, mint hogy megtanult volna rendesen járni. Amióta az eszét tudja, alapokat veret, énekel, meg járja a színpadokat. Betegesen imádja ezt a sz@rt. Az első hangfájlodtól a kész maszterig fogni fogja a kezedet, nem engedi el, amíg egy kezdetleges elképzelésből is olyan pusztító banger nem lesz, amitől a TikTokon összefossák magukat az emberek. Ha vele dolgozol, nem kérdés, hogy sikeres lesz a cuccod.
                 </p>
 
                 {/* Tibi's Punchy Labels */}
@@ -1446,7 +1446,7 @@ export default function App() {
                   <span className="w-2.5 h-2.5 rounded-full bg-[#EAA824]" />
                 </h3>
                 <p className="text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.7] text-[#3e3b36] font-normal mb-6">
-                  Amíg te 18 évesen azon vergődtél, hogy kitől tarhálj cigit a suli mögött, ez a csávó már céget épített. Konkrétan egy két lábon járó terminátor: a semmiből basz össze neked weboldalt, szoftvert, webappot vagy akármilyen AI toolt, miközben olyan marketingérzéke van, hogy beszarsz. Pontosan tudja, a videó melyik másodpercében melyik agysejted adja meg magát, hogy népszerű legyen a szarod. Nem százas a gyerek, de pont az ilyen elmebetegek fogják felrakni a zenédet a térképre.
+                  Amíg mások 18 évesen azon filóztak, hogy kitől tarháljanak cigit a suli mögött, ez a csávó már céget épített. Konkrétan egy két lábon járó terminátor: a semmiből rak össze neked weboldalt, szoftvert, webappot vagy akármilyen AI toolt, miközben olyan marketingérzéke van, hogy besz@rsz. Pontosan tudja, a videó melyik másodpercében melyik agysejted adja meg magát, hogy népszerű legyen a cuccod. Nem százas a gyerek, de pont az ilyen elmebetegek fogják felrakni a zenédet a térképre.
                 </p>
 
                 {/* Norbi's Punchy Labels */}
@@ -1488,7 +1488,7 @@ export default function App() {
                   <span className="w-2.5 h-2.5 rounded-full bg-[#EAA824]" />
                 </h3>
                 <p className="text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.7] text-[#3e3b36] font-normal mb-6">
-                  Ez a csávó konkrétan fekete mágiát űz a kamerával. Vágod, kibérlünk egy olyan leprás, foszladozó, elhagyatott raktárt, amitől még a Démonok között stábja is sikítva fosná össze magát. Berángatunk a sarokból egy bányarém tramplit, akitől a vakolat is leolvad a falról, rázárjuk az ajtót Ádira, és a csávó másnap reggel átad egy olyan kész videóklipet, amiben konkrétan Palvin Barbi twerkel a Hilton hotel aulájában. A legolcsóbb nyomorból is olyan luxus képi világot basz össze, hogy az algoritmus maga fog térden állva könyörögni a megtekintésekért. Nagyon beteg a faszi, ha a klippedért ő felel, a látvány miatt tuti nem fogsz égni.
+                  Ez a csávó konkrétan fekete mágiát űz a kamerával. Vágod, kibérlünk egy olyan leprás, foszladozó, elhagyatott raktárt, amitől még a Démonok között stábja is sikítva fosná össze magát. Berángatunk a sarokból egy bányarém tramplit, akitől a vakolat is leolvad a falról. Rájuk zárjuk az ajtót, és a csávó másnap reggel átad egy olyan kész videóklipet, amiben konkrétan Palvin Barbi twerkel a Hilton hotel aulájában. A legolcsóbb nyomorból is olyan luxus képi világot varázsol, hogy az algoritmus maga fog térden állva könyörögni a megtekintésekért. Nagyon beteg a faszi, ha a klippedért ő felel, a látvány miatt tuti nem fogsz égni.
                 </p>
 
                 {/* Ádi's Punchy Labels */}
@@ -1531,7 +1531,7 @@ export default function App() {
               {/* Section Header */}
               <div className="max-w-3xl mb-10 lg:mb-14">
                 <h2 className="font-editorial font-bold text-2xl sm:text-3xl lg:text-[36px] leading-[1.25] text-white tracking-[-0.02em] mb-4 text-balance">
-                  Nincs hangod? Nem baj, nekünk van fülünk.
+                  Tehetséges vagy? Szuper. Nincs hangod? Nem baj, nekünk van fülünk.
                 </h2>
                 <p className="text-neutral-400 text-[14px] sm:text-[16px] leading-[1.65] max-w-2xl font-normal">
                   Parázol, hogy beégsz a mikrofon előtt, vagy kiröhögnek a követőid? Hallgasd meg, mit csináltunk egy hamis feléneklésből:
@@ -1651,7 +1651,7 @@ export default function App() {
               {/* Section Header */}
               <div className="max-w-3xl">
                 <h2 className="font-editorial font-bold text-2xl sm:text-3xl lg:text-[36px] leading-[1.25] text-[#141414] tracking-[-0.02em] mb-4 text-balance">
-                  Sosem szerveztél még profi klipforgatást? Nem baj, nem is a te dolgod..
+                  Sosem szerveztél még profi klipforgatást? Nem baj, ezt is megoldjuk..
                 </h2>
                 <div className="space-y-4">
                   <p className="text-[#3e3b36] text-[14px] sm:text-[16px] leading-[1.65] max-w-2xl font-normal">
