@@ -11,14 +11,12 @@ import {
   Check,
   ChevronLeft,
   ChevronRight,
-  Heart,
   MessageCircle,
   Share2,
   Music,
   Plus,
   ChevronDown,
   ChevronUp,
-  MoreHorizontal,
   User,
   Phone,
   Mail,
@@ -1465,6 +1463,14 @@ export default function App() {
                     </span>
                   ))}
                 </div>
+                <button
+                  type="button"
+                  onClick={() => document.getElementById('closer')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="mt-6 inline-flex items-center gap-2 text-[14px] sm:text-[15px] font-bold text-[#141414] underline decoration-[#EAA824] decoration-2 underline-offset-4 hover:text-[#B9810F] transition-colors cursor-pointer"
+                >
+                  <span>Beszéljünk 15 percet ingyen</span>
+                  <ArrowRight size={15} />
+                </button>
               </div>
             </div>
 
@@ -1507,6 +1513,14 @@ export default function App() {
                     </span>
                   ))}
                 </div>
+                <button
+                  type="button"
+                  onClick={() => document.getElementById('closer')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="mt-6 inline-flex items-center gap-2 text-[14px] sm:text-[15px] font-bold text-[#141414] underline decoration-[#EAA824] decoration-2 underline-offset-4 hover:text-[#B9810F] transition-colors cursor-pointer"
+                >
+                  <span>Beszéljünk 15 percet ingyen</span>
+                  <ArrowRight size={15} />
+                </button>
               </div>
             </div>
 
@@ -1549,6 +1563,14 @@ export default function App() {
                     </span>
                   ))}
                 </div>
+                <button
+                  type="button"
+                  onClick={() => document.getElementById('closer')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="mt-6 inline-flex items-center gap-2 text-[14px] sm:text-[15px] font-bold text-[#141414] underline decoration-[#EAA824] decoration-2 underline-offset-4 hover:text-[#B9810F] transition-colors cursor-pointer"
+                >
+                  <span>Beszéljünk 15 percet ingyen</span>
+                  <ArrowRight size={15} />
+                </button>
               </div>
             </div>
 
@@ -1610,13 +1632,6 @@ export default function App() {
                     </div>
                   </div>
                   
-                  {/* Actions */}
-                  <div className="flex items-center gap-6 shrink-0 pr-2">
-                    <div className="flex items-center gap-3">
-                      <Heart size={14} className="text-neutral-500 hover:text-red-500 transition-colors" />
-                      <MoreHorizontal size={14} className="text-neutral-500" />
-                    </div>
-                  </div>
                 </div>
 
                 {/* Tibi Track (After) */}
@@ -1651,15 +1666,17 @@ export default function App() {
                     </div>
                   </div>
                   
-                  {/* Actions */}
-                  <div className="flex items-center gap-6 shrink-0 pr-2 relative z-10">
-                    <div className="flex items-center gap-3">
-                      <Heart size={14} fill="#EAA824" className="text-[#EAA824] hover:scale-110 transition-transform" />
-                      <MoreHorizontal size={14} className="text-neutral-400" />
-                    </div>
-                  </div>
                 </div>
               </div>
+
+              <button
+                type="button"
+                onClick={() => document.getElementById('closer')?.scrollIntoView({ behavior: 'smooth' })}
+                className="mt-8 w-full sm:w-auto py-3.5 px-7 rounded-xl font-bold text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 cursor-pointer bg-[#EAA824] text-black hover:bg-[#ffba2e]"
+              >
+                <span>Beszéljünk 15 percet ingyen</span>
+                <ArrowRight size={14} />
+              </button>
             </div>
 
             {/* Image Side (40%) */}
