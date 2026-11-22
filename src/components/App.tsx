@@ -52,69 +52,19 @@ interface SocialClient {
 const SOCIAL_CLIENTS: SocialClient[] = [
   {
     name: 'Rácz Géza',
-    avatar: (
-      <svg viewBox="0 0 40 40" className="w-full h-full bg-[#1F1C18]">
-        <circle cx="20" cy="19" r="9.5" fill="#DDB28C" />
-        <path d="M12 16 C12 11 28 11 28 16 Z" fill="#181512" />
-        {/* Sunglasses */}
-        <rect x="14" y="16" width="5.5" height="4" rx="1" fill="#111" />
-        <rect x="20.5" y="16" width="5.5" height="4" rx="1" fill="#111" />
-        <line x1="19.5" y1="18" x2="20.5" y2="18" stroke="#EAA824" strokeWidth="1" />
-        {/* Animal print collar */}
-        <path d="M11 36 C13 28 27 28 29 36 Z" fill="#E5A823" />
-        <path d="M14 31 L17 36 M20 29 L21 36 M24 30 L26 36" stroke="#111" strokeWidth="1.5" />
-      </svg>
-    ),
+    avatar: <img src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/R%C3%A1cz%20G%C3%A9za.webp" alt="Rácz Géza" loading="lazy" decoding="async" className="w-full h-full object-cover" />,
   },
   {
     name: 'Koltai Ádám',
-    avatar: (
-      <svg viewBox="0 0 40 40" className="w-full h-full bg-[#2A241A]">
-        {/* Tanned sculpted silhouette */}
-        <circle cx="20" cy="19" r="9.5" fill="#C99468" />
-        <path d="M13 14 C15 9 25 9 27 14 Z" fill="#3D2B1F" />
-        {/* Gold sunglasses */}
-        <rect x="14" y="16" width="5.5" height="4" rx="1" fill="#EAA824" />
-        <rect x="20.5" y="16" width="5.5" height="4" rx="1" fill="#EAA824" />
-        <line x1="19.5" y1="18" x2="20.5" y2="18" stroke="#111" strokeWidth="1" />
-        {/* Tank with gold chain */}
-        <path d="M10 36 C12 26 28 26 30 36 Z" fill="#1E272E" />
-        <path d="M16 28 Q20 33 24 28" stroke="#EAA824" strokeWidth="1.6" fill="none" />
-      </svg>
-    ),
+    avatar: <img src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/Koltai.webp" alt="Koltai Ádám" loading="lazy" decoding="async" className="w-full h-full object-cover" />,
   },
   {
     name: 'Mr. Busta',
-    avatar: (
-      <svg viewBox="0 0 40 40" className="w-full h-full bg-[#181E1C]">
-        {/* Warm skin tone & bright smile */}
-        <circle cx="20" cy="19" r="9.5" fill="#66442C" />
-        <path d="M13 15 C13 11 27 11 27 15 Z" fill="#1E140E" />
-        <circle cx="16.5" cy="18" r="1.3" fill="#FFF" />
-        <circle cx="16.5" cy="18" r="0.7" fill="#000" />
-        <circle cx="23.5" cy="18" r="1.3" fill="#FFF" />
-        <circle cx="23.5" cy="18" r="0.7" fill="#000" />
-        {/* Broad smile */}
-        <path d="M16 22 Q20 27 24 22 Z" fill="#FFF" />
-        {/* Tropical red/yellow collar */}
-        <path d="M11 36 C13 27 27 27 29 36 Z" fill="#D63031" />
-        <polygon points="20,28 22,34 18,34" fill="#EAA824" />
-      </svg>
-    ),
-  },  {
+    avatar: <img src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/Busta.webp" alt="Mr. Busta" loading="lazy" decoding="async" className="w-full h-full object-cover" />,
+  },
+  {
     name: 'M.K',
-    avatar: (
-      <svg viewBox="0 0 40 40" className="w-full h-full bg-[#2A1D27]">
-        {/* Blonde ponytail */}
-        <circle cx="26" cy="12" r="5" fill="#F4CF74" />
-        <circle cx="20" cy="19" r="8.5" fill="#F5CBA7" />
-        <path d="M13 18 C14 11 26 11 27 18 Z" fill="#F4CF74" />
-        <circle cx="17" cy="19" r="1.2" fill="#2A1B28" />
-        <circle cx="23" cy="19" r="1.2" fill="#2A1B28" />
-        <path d="M18.5 22.5 Q20 23.8 21.5 22.5" stroke="#E84393" strokeWidth="1" fill="none" strokeLinecap="round" />
-        <path d="M12 36 C13 28 27 28 28 36 Z" fill="#FD79A8" />
-      </svg>
-    ),
+    avatar: <img src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/MK.webp" alt="M.K" loading="lazy" decoding="async" className="w-full h-full object-cover" />,
   },
 ];
 
@@ -2252,8 +2202,8 @@ export default function App() {
           {/* Review (placeholder) */}
           <div className="mt-8 w-full rounded-2xl bg-gradient-to-br from-white/[0.12] to-white/[0.03] backdrop-blur-xl border border-white/15 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_8px_32px_rgba(0,0,0,0.35)] p-4 flex flex-col gap-3">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-neutral-300 shrink-0">
-                <User size={22} />
+              <div className="w-11 h-11 rounded-full bg-white/10 border border-white/15 overflow-hidden shrink-0">
+                <img src="https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/socialproof/Busta.webp" alt="Mr. Busta" loading="lazy" decoding="async" className="w-full h-full object-cover" />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="text-sm font-bold leading-tight">Mr. Busta</div>
