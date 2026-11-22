@@ -44,39 +44,6 @@ const AUDIO_TRACKS = {
 const CLOSER_VIDEO = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/contactform.mp4';
 const CLOSER_POSTER = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/contaktform_poster.jpg';
 
-// Horizontal drag/swipe (mouse + touch) -> prev/next. Vertical scrolling stays native.
-function useDragNav(onPrev: () => void, onNext: () => void) {
-  const st = useRef({ x: 0, y: 0, active: false, dragged: false });
-  return {
-    style: { touchAction: 'pan-y' as const },
-    onDragStart: (e: React.DragEvent) => e.preventDefault(),
-    onPointerDown: (e: React.PointerEvent) => {
-      st.current = { x: e.clientX, y: e.clientY, active: true, dragged: false };
-    },
-    onPointerMove: (e: React.PointerEvent) => {
-      const c = st.current;
-      if (!c.active) return;
-      const dx = e.clientX - c.x;
-      const dy = e.clientY - c.y;
-      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) {
-        c.dragged = true;
-        c.x = e.clientX;
-        if (dx < 0) onNext();
-        else onPrev();
-      }
-    },
-    onPointerUp: () => { st.current.active = false; },
-    onPointerCancel: () => { st.current.active = false; },
-    onClickCapture: (e: React.MouseEvent) => {
-      if (st.current.dragged) {
-        e.stopPropagation();
-        e.preventDefault();
-        st.current.dragged = false;
-      }
-    },
-  };
-}
-
 // Video with a single play/pause toggle (no native controls)
 function PlayPauseVideo({ src, poster, className }: { src: string; poster: string; className: string }) {
   const ref = useRef<HTMLVideoElement>(null);
@@ -813,9 +780,6 @@ export default function App() {
     bonusRowRef.current.scrollBy({ left: offset, behavior: 'smooth' });
   };
 
-  const prevGuarantee = () => setActiveGuaranteeIndex((p) => (p > 0 ? p - 1 : GUARANTEE_CARDS.length - 1));
-  const nextGuarantee = () => setActiveGuaranteeIndex((p) => (p < GUARANTEE_CARDS.length - 1 ? p + 1 : 0));
-
   const prevPhone = () => {
     setActivePhoneIndex((prev) => (prev > 0 ? prev - 1 : TIKTOK_TESTIMONIALS.length - 1));
   };
@@ -823,9 +787,6 @@ export default function App() {
   const nextPhone = () => {
     setActivePhoneIndex((prev) => (prev < TIKTOK_TESTIMONIALS.length - 1 ? prev + 1 : 0));
   };
-
-  const phoneDrag = useDragNav(prevPhone, nextPhone);
-  const guaranteeDrag = useDragNav(prevGuarantee, nextGuarantee);
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
@@ -1179,7 +1140,7 @@ export default function App() {
             </button>
 
             {/* Phone Mockups Track (NO preserve-3d to eliminate polygon intersection/melting) */}
-            <div {...phoneDrag} className="relative w-full h-full flex items-center justify-center cursor-grab active:cursor-grabbing">
+            <div className="relative w-full h-full flex items-center justify-center">
               {TIKTOK_TESTIMONIALS.map((item, idx) => {
                 const total = TIKTOK_TESTIMONIALS.length;
                 let offset = ((idx - activePhoneIndex) % total + total) % total;
@@ -2062,7 +2023,7 @@ export default function App() {
           </div>
 
           {/* 5 Fanned Overlapping Cards Deck */}
-          <div {...guaranteeDrag} className="relative flex items-center justify-center h-[545px] sm:h-[585px] w-full max-w-[1160px] mx-auto select-none cursor-grab active:cursor-grabbing">
+          <div className="relative flex items-center justify-center h-[545px] sm:h-[585px] w-full max-w-[1160px] mx-auto select-none">
             {GUARANTEE_CARDS.map((card, idx) => {
               const offset = idx - activeGuaranteeIndex;
               const absOffset = Math.abs(offset);
