@@ -2256,9 +2256,9 @@ export default function App() {
                 <User size={22} />
               </div>
               <div className="flex-1 min-w-0">
-                <div className="text-sm font-bold leading-tight">Név Placeholder</div>
+                <div className="text-sm font-bold leading-tight">Mr. Busta</div>
                 <div className="flex items-center gap-2 text-[11px] text-neutral-400 mt-0.5">
-                  <span>2026. nov. 21.</span>
+                  <span>2026.11.11.</span>
                   <span className="inline-flex items-center gap-1 font-semibold text-[#EAA824]">
                     <BadgeCheck size={13} />
                     Clipform hitelesített
@@ -2271,7 +2271,7 @@ export default function App() {
               </div>
             </div>
             <p className="text-[13px] sm:text-sm text-neutral-300 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+              Van mögöttem több mint 30 évnyi tapasztalat a stúdiózás terén,de mikor megtapasztaltam hogy Tibi munkája mennyit tesz az enyémhez nem akartam elhinni! Bátran ajánlom haladóknak és kezdőknek egyaránt! Ne hezitáljatok bátran keressétek Egri Tibcsit🙏🏻😎
             </p>
           </div>
           </div>
