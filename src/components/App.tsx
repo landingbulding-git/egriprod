@@ -733,6 +733,7 @@ export default function App() {
 
   const [selectedPackage, setSelectedPackage] = useState('');
   const [isSending, setIsSending] = useState(false);
+  const [formSent, setFormSent] = useState(false);
   const [closerPlaying, setCloserPlaying] = useState(false);
   const [playingTrack, setPlayingTrack] = useState<'raw' | 'done' | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -2139,6 +2140,16 @@ export default function App() {
           <h2 className="font-editorial font-bold text-3xl sm:text-4xl leading-tight text-white tracking-[-0.02em] mb-8 text-balance">
             Hagyd meg az adataidat
           </h2>
+          {formSent ? (
+            <div className="flex flex-col items-center text-center gap-5 py-10">
+              <div className="w-16 h-16 rounded-full bg-[#EAA824] text-black flex items-center justify-center shadow-md">
+                <Check size={32} strokeWidth={3} />
+              </div>
+              <p className="text-lg sm:text-xl font-bold text-white leading-snug text-balance">
+                Köszönjük, megkaptuk az infókat. Néhány órán belül hívni fogunk.
+              </p>
+            </div>
+          ) : (
           <form
             className="space-y-5"
             onSubmit={async (e) => {
@@ -2155,8 +2166,7 @@ export default function App() {
                 const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
                 const json = await res.json();
                 if (!json.success) throw new Error(json.message);
-                showToast('Köszönjük! Hamarosan jelentkezünk.');
-                form.reset();
+                setFormSent(true);
                 setSelectedPackage('');
               } catch {
                 showToast('Hiba történt, kérlek próbáld újra.');
@@ -2234,6 +2244,7 @@ export default function App() {
               <ArrowRight size={14} />
             </button>
           </form>
+          )}
 
           {/* Review (placeholder) */}
           <div className="mt-8 w-full rounded-2xl bg-gradient-to-br from-white/[0.12] to-white/[0.03] backdrop-blur-xl border border-white/15 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_8px_32px_rgba(0,0,0,0.35)] p-4 flex flex-col gap-3">
