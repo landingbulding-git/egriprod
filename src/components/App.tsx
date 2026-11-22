@@ -44,6 +44,48 @@ const AUDIO_TRACKS = {
 const CLOSER_VIDEO = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/contactform.mp4';
 const CLOSER_POSTER = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/contaktform_poster.jpg';
 
+// Video with a single play/pause toggle (no native controls)
+function PlayPauseVideo({ src, poster, className }: { src: string; poster: string; className: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [paused, setPaused] = useState(false);
+  const toggle = () => {
+    const v = ref.current;
+    if (!v) return;
+    if (v.paused) v.play();
+    else v.pause();
+  };
+  return (
+    <div className={className}>
+      <video
+        ref={ref}
+        src={src}
+        poster={poster}
+        autoPlay
+        playsInline
+        controlsList="nodownload noremoteplayback"
+        disablePictureInPicture
+        onContextMenu={(e) => e.preventDefault()}
+        onPlay={() => setPaused(false)}
+        onPause={() => setPaused(true)}
+        onClick={toggle}
+        className="w-full h-full object-cover bg-black cursor-pointer"
+      />
+      <button
+        type="button"
+        onClick={toggle}
+        aria-label={paused ? 'Lejátszás' : 'Szünet'}
+        className={`absolute inset-0 flex items-center justify-center cursor-pointer transition-opacity duration-200 ${
+          paused ? 'opacity-100' : 'opacity-0 hover:opacity-100'
+        }`}
+      >
+        <span className="w-14 h-14 rounded-full bg-black/60 backdrop-blur-xs border border-white/20 flex items-center justify-center text-white">
+          {paused ? <Play size={24} fill="currentColor" className="ml-0.5" /> : <Pause size={24} fill="currentColor" />}
+        </span>
+      </button>
+    </div>
+  );
+}
+
 interface SocialClient {
   name: string;
   avatar: React.ReactNode;
@@ -1178,13 +1220,10 @@ export default function App() {
                       <div className="relative w-full flex-1 rounded-[30px] sm:rounded-[36px] overflow-hidden bg-neutral-950 flex flex-col justify-between">
                         
                         {isCenter && activeVideo === item.id && (
-                          <video
+                          <PlayPauseVideo
                             src={item.video}
                             poster={item.thumbnail}
-                            controls
-                            autoPlay
-                            playsInline
-                            className="absolute inset-0 z-30 w-full h-full object-cover bg-black"
+                            className="absolute inset-0 z-30 bg-black"
                           />
                         )}
 
@@ -2072,13 +2111,10 @@ export default function App() {
           {/* Left: 9:16 video */}
           <div className="relative w-full aspect-[9/16] max-h-[560px] lg:max-h-none lg:aspect-auto lg:h-full bg-[#161822] overflow-hidden">
             {closerPlaying ? (
-              <video
+              <PlayPauseVideo
                 src={CLOSER_VIDEO}
                 poster={CLOSER_POSTER}
-                controls
-                autoPlay
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover bg-black"
+                className="absolute inset-0 bg-black"
               />
             ) : (
               <button
