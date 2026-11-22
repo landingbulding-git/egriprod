@@ -141,7 +141,7 @@ const TIKTOK_TESTIMONIALS: TikTokTestimonial[] = [
   {
     id: 'norina',
     name: 'Norina Diamond',
-    username: '@norinadiamond',
+    username: '@daviiiid0722',
     role: 'Énekesnő & TikTok Alkotó',
     quote: 'The way to get started is to quit talking and begin.',
     fullQuote: 'Az EgriProd nélkül még mindig csak az asztalfióknak írnám a szövegeket. Egy profi stúdiócsapat, akik azonnal ráéreztek a stílusomra, és a dalunk 3 nap alatt a TikTok zenei toplistájára ugrott!',
@@ -159,7 +159,7 @@ const TIKTOK_TESTIMONIALS: TikTokTestimonial[] = [
   {
     id: 'gyozike',
     name: 'Győzike',
-    username: '@gyozike_original',
+    username: '@kaldibjunior7',
     role: 'Showman & Előadó',
     quote: "Opportunities don't happen. You create them.",
     fullQuote: 'Egyetlen délután alatt összeraktuk az egész nótát Tiborral. Nem volt üres duma, csak kemény munka és prémium mastering. A TikTok algoritmus megőrült érte, azonnal kilőtt az űrbe!',
@@ -177,7 +177,7 @@ const TIKTOK_TESTIMONIALS: TikTokTestimonial[] = [
   {
     id: 'egri_center',
     name: 'Egri Tibor & Alkotók',
-    username: '@egri_prod_official',
+    username: '@raczgeza_official',
     role: 'Zenei Producer & Hitmaker',
     quote: 'Embracing the burn, redefining my limits',
     fullQuote: 'Nulláról a For You Page csúcsára. Az EgriProd lényege a gyorsaság, a radio-ready mastering és az, hogy 0% jogdíjat nyúlunk le a sikeredből. A dal 100%-ban a tied marad.',
@@ -195,7 +195,7 @@ const TIKTOK_TESTIMONIALS: TikTokTestimonial[] = [
   {
     id: 'varga_iren',
     name: 'Varga Irén',
-    username: '@vargairen_real',
+    username: '@koltai_adam_hivatalos',
     role: 'Internetes Szenzáció',
     quote: 'It takes courage to grow up and become who you really are',
     fullQuote: 'Imádom a dalt, amit nekem készítettek! Több mint egymillióan énekelték a hookomat, mindenhol ez szól, amerre járok. Köszi Tibi és az EgriProd!',
@@ -213,7 +213,7 @@ const TIKTOK_TESTIMONIALS: TikTokTestimonial[] = [
   {
     id: 'johnny_gold',
     name: 'Johnny Gold',
-    username: '@johnnygold_pro',
+    username: '@robyg780',
     role: 'Fitness & Zenei Ikon',
     quote: 'Success is not in what you have, but who you are.',
     fullQuote: 'A fitnesztermekben és a klubokban is ez a zene pörög. Tiszta, masszív hangzás, nem gagyi házi demó, hanem igazi profi amerikai szintű produkció.',
@@ -468,7 +468,7 @@ const ADI_VIDEOS = [
   '1olG4omyNe8',
   'x0yGd5nryvE',
   'NdRslSu93mc',
-  'iCoqoL8zgZQ',
+  'I18VLFUQ8_c',
   'zC2aK8cesy8'
 ];
 
