@@ -1488,7 +1488,7 @@ export default function App() {
                   <span className="w-2.5 h-2.5 rounded-full bg-[#EAA824]" />
                 </h3>
                 <p className="text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.7] text-[#3e3b36] font-normal mb-6">
-                  Ez a csávó konkrétan fekete mágiát űz a kamerával. Vágod, kibérlünk egy olyan leprás, foszladozó, elhagyatott raktárt, amitől még a Démonok között stábja is sikítva fosná össze magát. Berángatunk a sarokból egy bányarém tramplit, akitől a vakolat is leolvad a falról. Rájuk zárjuk az ajtót, és a csávó másnap reggel átad egy olyan kész videóklipet, amiben konkrétan Palvin Barbi twerkel a Hilton hotel aulájában. A legolcsóbb nyomorból is olyan luxus képi világot varázsol, hogy az algoritmus maga fog térden állva könyörögni a megtekintésekért. Nagyon beteg a faszi, ha a klippedért ő felel, a látvány miatt tuti nem fogsz égni.
+                  Ez a csávó konkrétan fekete mágiát űz a kamerával. Vágod, kibérlünk egy olyan leprás, foszladozó, elhagyatott raktárt, amitől még a Démonok között stábja is sikítva fosná össze magát. Berángatunk a sarokból egy bányarém tramplit, akitől a vakolat is leolvad a falról. Rájuk zárjuk az ajtót, és a csávó másnap reggel átad egy olyan kész videóklipet, amiben konkrétan Palvin Barbi twerkel a Hilton hotel aulájában. A semmiből is olyan luxus képi világot varázsol, hogy az algoritmus maga fog térden állva könyörögni a megtekintésekért. Nagyon beteg a faszi, ha a klippedért ő felel, a látvány miatt tuti nem fogsz égni.
                 </p>
 
                 {/* Ádi's Punchy Labels */}
