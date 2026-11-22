@@ -41,6 +41,9 @@ const AUDIO_TRACKS = {
   done: 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/sing/done.mp3',
 };
 
+const CLOSER_VIDEO = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/contactform.mp4';
+const CLOSER_POSTER = 'https://3hsqhvhvojbpy1pz.public.blob.vercel-storage.com/main/contaktform_poster.jpg';
+
 interface SocialClient {
   name: string;
   avatar: React.ReactNode;
@@ -738,6 +741,7 @@ export default function App() {
 
   const [selectedPackage, setSelectedPackage] = useState('');
   const [isSending, setIsSending] = useState(false);
+  const [closerPlaying, setCloserPlaying] = useState(false);
   const [playingTrack, setPlayingTrack] = useState<'raw' | 'done' | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const toggleTrack = (id: 'raw' | 'done') => {
@@ -2115,11 +2119,32 @@ export default function App() {
       {/* ================================================================ */}
       <section id="closer" className="w-full py-16 sm:py-24 px-4 sm:px-10 lg:px-16 bg-[#0E0F14] text-white">
         <div className="max-w-6xl mx-auto rounded-[28px] sm:rounded-[36px] bg-[#0E0F14] border border-white/10 shadow-[0_0_80px_-10px_rgba(255,255,255,0.10)] grid grid-cols-1 lg:grid-cols-[2fr_3fr] items-stretch overflow-hidden">
-          {/* Left: 9:16 video placeholder */}
-          <div className="w-full aspect-[9/16] max-h-[560px] lg:max-h-none lg:aspect-auto lg:h-full bg-[#161822] flex items-center justify-center">
-            <div className="w-16 h-16 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white">
-              <Play size={26} fill="currentColor" className="ml-1" />
-            </div>
+          {/* Left: 9:16 video */}
+          <div className="relative w-full aspect-[9/16] max-h-[560px] lg:max-h-none lg:aspect-auto lg:h-full bg-[#161822] overflow-hidden">
+            {closerPlaying ? (
+              <video
+                src={CLOSER_VIDEO}
+                poster={CLOSER_POSTER}
+                controls
+                autoPlay
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover bg-black"
+              />
+            ) : (
+              <button
+                type="button"
+                onClick={() => setCloserPlaying(true)}
+                aria-label="Videó lejátszása"
+                className="absolute inset-0 w-full h-full cursor-pointer"
+              >
+                <img loading="lazy" decoding="async" src={CLOSER_POSTER} alt="" className="absolute inset-0 w-full h-full object-cover" />
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <span className="w-16 h-16 rounded-full bg-black/60 backdrop-blur-xs border border-white/20 flex items-center justify-center text-white hover:scale-110 hover:bg-[#EAA824] hover:text-black hover:border-transparent transition-all">
+                    <Play size={26} fill="currentColor" className="ml-1" />
+                  </span>
+                </span>
+              </button>
+            )}
           </div>
 
           {/* Right: title + form + review */}
