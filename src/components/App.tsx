@@ -855,7 +855,7 @@ export default function App() {
         {/* ============================================================ */}
         {/* LEFT COLUMN: Artist Spotlight & Custom Image Upload Area   */}
         {/* ============================================================ */}
-        <section 
+        <section id="hero" 
           className="relative lg:w-[45%] xl:w-[42%] w-full aspect-video lg:aspect-auto lg:min-h-screen bg-[#121214] flex flex-col justify-between overflow-hidden"
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
@@ -1092,7 +1092,7 @@ export default function App() {
       {/* ============================================================ */}
       {/* VIDEO TESTIMONIALS SECTION: TIKTOK 3D PHONE MOCKUP CAROUSEL   */}
       {/* ============================================================ */}
-      <section className="relative w-full bg-[#0D0F14] pt-16 sm:pt-24 pb-24 overflow-hidden">
+      <section id="velemenyek" className="relative w-full bg-[#0D0F14] pt-16 sm:pt-24 pb-24 overflow-hidden">
         
         {/* Subtle ambient gradient backdrops matching reference */}
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none" />
@@ -1292,7 +1292,7 @@ export default function App() {
       {/* ============================================================ */}
       {/* THE BRUTAL REALITY / PAIN POINTS SECTION                     */}
       {/* ============================================================ */}
-      <section className="w-full py-16 sm:py-24 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] text-[#161616]">
+      <section id="miert-mi" className="w-full py-16 sm:py-24 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] text-[#161616]">
         <div className="max-w-3xl mx-auto">
           
           {/* Section Header */}
@@ -1411,7 +1411,7 @@ export default function App() {
       {/* ============================================================ */}
       {/* TEAM SECTION: Kik vagytok amúgy?                             */}
       {/* ============================================================ */}
-      <section className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] text-[#161616]">
+      <section id="csapat" className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] text-[#161616]">
         <div className="max-w-6xl mx-auto">
           
           {/* Section Header */}
@@ -1581,7 +1581,7 @@ export default function App() {
       {/* ============================================================ */}
       {/* BEFORE/AFTER AUDIO SHOWCASE SECTION                          */}
       {/* ============================================================ */}
-      <section className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#0E0F14] text-white relative overflow-hidden">
+      <section id="dal" className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#0E0F14] text-white relative overflow-hidden">
         {/* Subtle atmospheric ambient glow */}
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#EAA824]/5 rounded-full blur-[140px] pointer-events-none" />
         
@@ -1699,7 +1699,7 @@ export default function App() {
       {/* ============================================================ */}
       {/* VIDEO PRODUCTION SHOWCASE SECTION                            */}
       {/* ============================================================ */}
-      <section className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] text-[#161616]">
+      <section id="klip" className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] text-[#161616]">
         <div className="max-w-6xl mx-auto">
           
           <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16 mb-12 sm:mb-16">
@@ -1766,7 +1766,7 @@ export default function App() {
       {/* ============================================================ */}
       {/* PRICING & SLÁGERCSOMAGOK SECTION                             */}
       {/* ============================================================ */}
-      <section className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#0E0F14] text-white relative overflow-hidden">
+      <section id="csomagok" className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#0E0F14] text-white relative overflow-hidden">
         {/* Subtle atmospheric ambient glow */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[#EAA824]/5 rounded-full blur-[140px] pointer-events-none" />
 
@@ -1914,7 +1914,7 @@ export default function App() {
       {/* ============================================================ */}
       {/* BONUSES SECTION (Horizontal Bonus Cards)                     */}
       {/* ============================================================ */}
-      <section className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] text-[#161616] overflow-hidden">
+      <section id="bonuszok" className="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-[#F4EFE6] text-[#161616] overflow-hidden">
         <div className="max-w-7xl mx-auto">
           {/* Section Header + Horizontal Scroll Controls */}
           <div className="flex items-end justify-between gap-6 mb-10 sm:mb-14">
@@ -2030,7 +2030,7 @@ export default function App() {
       {/* ============================================================ */}
       {/* GUARANTEES SECTION (5 Fanned Cards)                          */}
       {/* ============================================================ */}
-      <section className="w-full py-20 sm:py-28 px-4 sm:px-10 lg:px-16 bg-[#0E0F14] text-white relative overflow-hidden">
+      <section id="garanciak" className="w-full py-20 sm:py-28 px-4 sm:px-10 lg:px-16 bg-[#0E0F14] text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
@@ -2293,6 +2293,44 @@ export default function App() {
         </div>
       </section>
 
+      {/* ================================================================ */}
+      {/* FOOTER                                                           */}
+      {/* ================================================================ */}
+      <footer className="w-full bg-[#08090C] text-white px-6 sm:px-10 lg:px-16 pt-14 pb-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[1.2fr_2fr_1fr] gap-10 md:gap-16">
+          <a href="#hero" aria-label="EgriProd – főoldal" className="block text-[#EAA824] font-black text-3xl tracking-[-0.04em] leading-[0.85] font-sans w-fit">
+            EGRI<br />PROD
+          </a>
+
+          <nav aria-label="Oldal tartalma">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-neutral-500 mb-4">Oldal</p>
+            <ul className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-3">
+              <li><a href="#hero" className="text-sm text-neutral-400 hover:text-[#EAA824] transition-colors">Főoldal</a></li>
+              <li><a href="#velemenyek" className="text-sm text-neutral-400 hover:text-[#EAA824] transition-colors">Ügyfeleink</a></li>
+              <li><a href="#miert-mi" className="text-sm text-neutral-400 hover:text-[#EAA824] transition-colors">Miért mi?</a></li>
+              <li><a href="#csapat" className="text-sm text-neutral-400 hover:text-[#EAA824] transition-colors">Rólunk</a></li>
+              <li><a href="#dal" className="text-sm text-neutral-400 hover:text-[#EAA824] transition-colors">Saját dal</a></li>
+              <li><a href="#klip" className="text-sm text-neutral-400 hover:text-[#EAA824] transition-colors">Klipforgatás</a></li>
+              <li><a href="#csomagok" className="text-sm text-neutral-400 hover:text-[#EAA824] transition-colors">Csomagok</a></li>
+              <li><a href="#bonuszok" className="text-sm text-neutral-400 hover:text-[#EAA824] transition-colors">Bónuszok</a></li>
+              <li><a href="#garanciak" className="text-sm text-neutral-400 hover:text-[#EAA824] transition-colors">Garanciák</a></li>
+              <li><a href="#closer" className="text-sm text-neutral-400 hover:text-[#EAA824] transition-colors">Kapcsolat</a></li>
+            </ul>
+          </nav>
+
+          <nav aria-label="Jogi információk">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-neutral-500 mb-4">Jogi</p>
+            <ul className="space-y-3">
+              <li><a href="/impresszum" className="text-sm text-neutral-400 hover:text-[#EAA824] transition-colors">Impresszum</a></li>
+              <li><a href="/adatvedelmi-szabalyzat" className="text-sm text-neutral-400 hover:text-[#EAA824] transition-colors">Adatvédelmi szabályzat</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-white/10 text-xs text-neutral-500">
+          © {new Date().getFullYear()} EgriProd. Minden jog fenntartva.
+        </div>
+      </footer>
     </main>
   );
 }
